@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-04-01T07:52:32.886Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" etag="bm3umQKoNVPiB1yBR_0A" version="12.9.6" type="github">
+<mxfile host="app.diagrams.net" modified="2020-04-01T07:53:40.136Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" etag="A1kfRUPUSjhn4bQhpNg7" version="12.9.6" type="github">
   <diagram id="LNp4F6r71lo-x7ufgRuV" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -124,13 +124,13 @@
         <mxCell id="Vb6VZAKTnWNkTPyRdPqT-136" value="" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;" vertex="1" parent="1">
           <mxGeometry x="445" y="480" width="170" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="Vb6VZAKTnWNkTPyRdPqT-137" value="TYPE UTILISATEUR" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=1;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="Vb6VZAKTnWNkTPyRdPqT-137" value="TYPE PRODUIT" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=1;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="465" y="484" width="130" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="Vb6VZAKTnWNkTPyRdPqT-138" value="IdTypeUti" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;fontStyle=4" vertex="1" parent="1">
+        <mxCell id="Vb6VZAKTnWNkTPyRdPqT-138" value="IdTypeProduit" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;fontStyle=4" vertex="1" parent="1">
           <mxGeometry x="510" y="510" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="Vb6VZAKTnWNkTPyRdPqT-139" value="NomTypeUti" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
+        <mxCell id="Vb6VZAKTnWNkTPyRdPqT-139" value="NomTypeProduit" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;" vertex="1" parent="1">
           <mxGeometry x="510" y="530" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="Vb6VZAKTnWNkTPyRdPqT-140" value="&lt;b&gt;QUANTITE&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
