@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-04-01T08:53:02.681Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" etag="nC3s5qsCFIGlFGZrgJOr" version="12.9.6" type="github">
+<mxfile host="app.diagrams.net" modified="2020-04-01T08:53:30.230Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" etag="WqYE19njdSVYsxY9wfA3" version="12.9.6" type="github">
   <diagram id="LNp4F6r71lo-x7ufgRuV" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -134,7 +134,7 @@
           <mxGeometry x="510" y="530" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="Vb6VZAKTnWNkTPyRdPqT-146" value="&lt;b&gt;TAILLE&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
-          <mxGeometry x="791" y="299.13" width="130" height="125.75" as="geometry" />
+          <mxGeometry x="790" y="270.12" width="130" height="125.75" as="geometry" />
         </mxCell>
         <mxCell id="Vb6VZAKTnWNkTPyRdPqT-152" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="790" y="99.25999999999999" width="130" height="125.75" as="geometry" />
@@ -149,10 +149,10 @@
           <mxGeometry x="837" y="156.26" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="Vb6VZAKTnWNkTPyRdPqT-158" value="IdTaille" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;labelBackgroundColor=none;fontStyle=4" vertex="1" parent="1">
-          <mxGeometry x="837" y="329" width="40" height="20" as="geometry" />
+          <mxGeometry x="836" y="299.99" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="Vb6VZAKTnWNkTPyRdPqT-159" value="NomTaille" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;labelBackgroundColor=none;" vertex="1" parent="1">
-          <mxGeometry x="837" y="350.01" width="40" height="20" as="geometry" />
+          <mxGeometry x="836" y="321" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="Vb6VZAKTnWNkTPyRdPqT-160" value="Avoir" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="660" y="234.63" width="57.5" height="26.25" as="geometry" />
@@ -172,7 +172,7 @@
             <mxPoint x="847" y="-116.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Vb6VZAKTnWNkTPyRdPqT-170" value="" style="endArrow=none;html=1;" edge="1" parent="1" target="Vb6VZAKTnWNkTPyRdPqT-160">
+        <mxCell id="Vb6VZAKTnWNkTPyRdPqT-170" value="" style="endArrow=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="Vb6VZAKTnWNkTPyRdPqT-146" target="Vb6VZAKTnWNkTPyRdPqT-160">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="790" y="354.63" as="sourcePoint" />
             <mxPoint x="937" y="63.5" as="targetPoint" />
