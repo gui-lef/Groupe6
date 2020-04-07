@@ -7,6 +7,22 @@ require 'src/models/connect.php';
 head();
 $db=Connection();
 
+if(isset($_POST["modele"])) {
+    $text = htmlspecialchars(trim($_POST["modele"]));
+    $sqlInsert = "INSERT INTO modele(nommodele) VALUE(:text)";
+    $req = $db->prepare($sqlInsert);
+    $req->bindParam(":text", $text);
+    $req->execute();
+}
+if(isset($_POST["marque"])) {
+    $text = htmlspecialchars(trim($_POST["modele"]));
+    $sqlInsert = "INSERT INTO marque(nommarque) VALUE(:text)";
+    $req = $db->prepare($sqlInsert);
+    $req->bindParam(":text", $text);
+    $req->execute();
+}
+
+
 ?>
     <h1>Site de mes véhicules</h1>
     <hr>
