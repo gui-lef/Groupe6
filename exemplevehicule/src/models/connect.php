@@ -1,5 +1,5 @@
 <?php
-require '../config/config.php';
+
 
 function connection(){
     try

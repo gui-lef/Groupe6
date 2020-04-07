@@ -6,6 +6,7 @@ require 'src/models/connect.php';
 
 head();
 $db=Connection();
+
 ?>
     <h1>Site de mes véhicules</h1>
     <hr>
