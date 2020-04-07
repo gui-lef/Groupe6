@@ -1,22 +1,58 @@
+<?php
+
+$vehiculeMarque = array(
+    "Audi" => "A1",
+    "Audi" => "A4",
+    "Audi" => "A6",
+    "BMW" => "Serie 4",
+    "BMW" => "Serie 7",
+    "BMW" => "Serie X6",
+    "PEUGEOT" => "208",
+    "PEUGEOT" => "5008",
+    "Ford" => "Fiesta",
+    "PEUGEOT" => "S-Max",
+);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Exemple Site - affichage véhicule</title>
+    <title>Liste de mes véhicules</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
-    <h1>Site de mes véhicules</h1>
+    <h1>Liste de mes véhicules</h1>
     <hr>
-    <div>
+    <table class="table table-hover mt-5 mb-5">
+        <thead class="thead-dark">
+        <tr>
+            <th>Marque</th>
+            <th>Modèle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <?php
+            foreach ($vehiculeMarque as $marque=>$modele){
+            ?>
+            <td><?= $marque ?></td>
+            <td><?= $modele ?></td>
+        </tr>
+        <?php
+        }
+        ?>
 
-        <a href="src/views/mesVehicules.php">
+        </tbody>
+    </table>
+    <div>
+        <a href="../../index.php">
             <button type="button" class="btn btn-outline-dark">
-                Mes véhicules
+                Accueil
             </button>
         </a>
-
     </div>
 </div>
 
