@@ -1,26 +1,53 @@
 <?php
 include_once 'elements/head.php';
 include_once 'elements/footer.php';
+require '../config/config.php';
 require '../models/connect.php';
 
-$db = connection();
 
-var_dump($db);
 
-$vehiculeMarque = array(
-    "Audi" => "A1",
-    "Audi" => "A4",
-    "Audi" => "A6",
-    "BMW" => "Serie 4",
-    "BMW" => "Serie 7",
-    "BMW" => "Serie X6",
-    "PEUGEOT" => "208",
-    "PEUGEOT" => "5008",
-    "Ford" => "Fiesta",
-    "PEUGEOT" => "S-Max",
-);
+/*var_dump($db);
+var_dump($_POST);*/
+
 
 head();
+$db=Connection();
+
+if(isset($_POST["marque"])) {
+    $marque = htmlspecialchars(trim($_POST["marque"]));
+    $sqlInsertMarque = "INSERT INTO marque(nommarque) VALUE(:marque)";
+    $reqMarque = $db->prepare($sqlInsertMarque);
+    $reqMarque->bindParam(":marque", $marque);
+    $reqMarque->execute();
+    $lastIdMarque=$db->lastInsertId();
+}
+
+
+if(isset($_POST["modele"])) {
+    $modele = htmlspecialchars(trim($_POST["modele"]));
+    $sqlInsertModele = "INSERT INTO modele(nommodele) VALUE(:modele)";
+    $reqModele = $db->prepare($sqlInsertModele);
+    $reqModele->bindParam(":modele", $modele);
+    $reqModele->execute();
+    $lastIdModele=$db->lastInsertId();
+}
+$sqlInsertVehicule="INSERT INTO vehicule (modele_idModele,marque_idMarque) VALUE($lastIdModele,$lastIdMarque)";
+$reqInsertVehicule=$db->prepare($sqlInsertVehicule);
+$reqInsertVehicule->execute();
+
+$sqlSelectVehicule="SELECT *
+FROM vehicule
+INNER JOIN modele ON vehicule.modele_idModele=modele.idModele
+INNER JOIN marque ON vehicule.marque_idMarque=marque.idMarque";
+$reqSelectVehicule=$db->prepare($sqlSelectVehicule);
+$reqSelectVehicule->execute();
+
+$listVehicules=array();
+
+while ($data=$reqSelectVehicule->fetchObject()){
+    array_push($listVehicules,$data);
+
+}
 ?>
 
     <h1>Liste de mes véhicules</h1>
@@ -35,10 +62,10 @@ head();
         <tbody>
         <tr>
             <?php
-            foreach ($vehiculeMarque as $marque=>$modele){
+            foreach ($listVehicules as $vehicule){
             ?>
-            <td><?= $marque ?></td>
-            <td><?= $modele ?></td>
+            <td><?= $vehicule->nomMarque?></td>
+            <td><?= $vehicule->nomModele?></td>
         </tr>
         <?php
         }

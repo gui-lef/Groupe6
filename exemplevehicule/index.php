@@ -1,28 +1,10 @@
 <?php
 require_once 'src/views/elements/head.php';
 require_once 'src/views/elements/footer.php';
-require 'src/config/config.php';
-require 'src/models/connect.php';
+
 
 head();
-$db=Connection();
 
-if(isset($_POST["marque"])) {
-    $text = htmlspecialchars(trim($_POST["marque"]));
-    $sqlInsert = "INSERT INTO marque(nommarque) VALUE(:text)";
-    $req = $db->prepare($sqlInsert);
-    $req->bindParam(":text", $text);
-    $req->execute();
-}
-
-
-if(isset($_POST["modele"])) {
-    $text = htmlspecialchars(trim($_POST["modele"]));
-    $sqlInsert = "INSERT INTO modele(nommodele) VALUE(:text)";
-    $req = $db->prepare($sqlInsert);
-    $req->bindParam(":text", $text);
-    $req->execute();
-}
 
 
 ?>
@@ -32,7 +14,7 @@ if(isset($_POST["modele"])) {
 
 
 
-        <form method="POST">
+        <form method="POST" action="src/views/mesVehicules.php">
             <div class="form-group">
                 <label for="marque">Marque</label>
                 <input type="text" name="marque" id="marque" class="form-control">
