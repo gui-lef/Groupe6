@@ -1,7 +1,7 @@
 <?php
 require_once 'src/views/elements/head.php';
 require_once 'src/views/elements/footer.php';
-
+require 'src/config/config.php';
 require 'src/models/connect.php';
 
 head();
@@ -44,11 +44,6 @@ if(isset($_POST["modele"])) {
             </div>
             <button type="submit" class="btn btn-outline-dark">Envoyer</button>
         </form>
-        <br/>
-        <a href="src/views/mesVehicules.php">
-            <button type="button" class="btn btn-outline-dark">
-                Mes véhicules
-            </button>
-        </a>
+
  <?php
 footer();
