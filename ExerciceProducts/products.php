@@ -85,7 +85,10 @@ head();
 		</tr>
 		</tbody>
 	</table>
+
 </div>
+    <form method="POST" action="src/views/affichage.php">
+        <button type="submit" class="btn btn-outline-dark">Envoyer</button>
 
 <?php footer();
 
