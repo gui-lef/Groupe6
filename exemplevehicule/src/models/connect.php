@@ -1,6 +1,6 @@
 <?php
 
-
+require 'src/config/config.php';
 function connection(){
     try
     {
