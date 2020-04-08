@@ -1,5 +1,9 @@
 <?php
+function header(){
+
+
 ?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -15,3 +19,5 @@
 </head>
 <body>
 <div class="container">
+    <?php
+    } ?>

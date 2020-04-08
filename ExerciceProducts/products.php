@@ -1,10 +1,10 @@
 <?php
-require_once 'src/views/elements/head.php';
+require_once 'src/views/elements/header.php';
 require_once 'src/views/elements/footer.php';
 require_once 'src/config/config.php';
 require_once 'src/models/connect.php';
 
-head();
+header();
 ?>
 
 	<h2>Products</h2>
