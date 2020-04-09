@@ -1,5 +1,5 @@
 <?php
-function header(){
+function head(){
 
 
 ?>
