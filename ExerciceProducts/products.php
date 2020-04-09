@@ -1,10 +1,12 @@
 <?php
-require_once 'src/views/elements/header.php';
+require_once 'src/views/elements/head.php';
 require_once 'src/views/elements/footer.php';
 require_once 'src/config/config.php';
 require_once 'src/models/connect.php';
 
-header();
+head();
+$db=connect();
+$listProduit=array();
 ?>
 
 	<h2>Products</h2>
@@ -20,11 +22,15 @@ header();
 		</tr>
 		</thead>
 		<tbody>
-		<tr>
-			<th scope="row">1</th>
-			<td>LG P880 4X HD</td>
-			<td>336</td>
-			<td>Fashion</td>
+            <?php
+            foreach ($listProduit as $produit){
+                ?>
+                <td><?= $produit->nomMarque?></td>
+                <td><?= $produit->nomModele?></td>
+                </tr>
+                <?php
+            }
+            ?>
 			<td>
 				<a href="#"><button class="btn btn-primary" type="submit"><i class="fa fa-bars" aria-hidden="true"></i> Lire</button></a>
 				<a href="#"><button class="btn btn-warning" type="submit"><i class="fa fa-spinner" aria-hidden="true"></i> Modifier</button></a>
