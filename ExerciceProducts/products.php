@@ -46,9 +46,20 @@ While($data=$reqSelectProduit->fetchObject()){
 
 
 			<td>
-				<a href="SRC/views/afficherProduit.php"><button class="btn btn-primary" type="submit"><i class="fa fa-bars" aria-hidden="true"></i> Lire</button></a>
-				<a href="SRC/views/modifierProduit.php"><button class="btn btn-warning" type="submit"><i class="fa fa-spinner" aria-hidden="true"></i> Modifier</button></a>
+                <div class="d-flex">
+                    <form method="get" action="SRC/views/afficherProduit.php">
+
+                        <input type=number value="<?= $produit->id?>"/>
+                        <button class="btn btn-primary"  type="submit"><i class="fa fa-bars" aria-hidden="true"></i> Lire</button>
+                    </form>
+                    <form method="get" action="SRC/views/.php"
+                    <input type=""
+
+				<<button class="btn btn-warning" type="submit"><i class="fa fa-spinner" aria-hidden="true"></i> Modifier</button>
+
 				<a href="#"><button class="btn btn-danger" type="submit"><i class="fa fa-minus-square" aria-hidden="true"></i> Supprimer</button></a>
+                    </form>
+                </div>
 			</td>
 		</tr>
 		<?php
