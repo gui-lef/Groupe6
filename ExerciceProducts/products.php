@@ -38,7 +38,7 @@ $listProduit=array();
 				<a href="#"><button class="btn btn-danger" type="submit"><i class="fa fa-minus-square" aria-hidden="true"></i> Supprimer</button></a>
 			</td>
 		</tr>
-
+        </tbody>
     <form method="POST" action="src/views/affichage.php">
         <button type="submit" class="btn btn-outline-dark">Envoyer</button>
 
