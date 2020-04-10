@@ -30,10 +30,10 @@ function head(){
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../location.php">Location</a>
+                <a class="nav-link" href="src/views/location.php">Location</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../contact.php">Contact</a>
+                <a class="nav-link" href="src/views/contact.php">Contact</a>
             </li>
         </ul>
     </div>
