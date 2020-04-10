@@ -1,6 +1,6 @@
 <?php
 
 define('LOCALHOST', 'localhost');
-define('DBNAME', 'agence_immobiliere');
+define('DBNAME', 'projetImmo');
 define('DBID', 'root');
 define('DBMDP','');
