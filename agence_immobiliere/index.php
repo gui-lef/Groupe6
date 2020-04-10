@@ -5,7 +5,7 @@ require_once 'src/config/config.php';
 require_once 'src/models/connect.php';
 
 head();
-$db=connection();
+
 ?>
 
 <div class="container">
@@ -25,3 +25,4 @@ $db=connection();
                 </div>
             </div>
         </div>
+footer();
