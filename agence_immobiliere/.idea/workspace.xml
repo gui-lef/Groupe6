@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efe4fbae-d5e8-4e4b-8c37-8657a4acda77" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/gererMesBiens.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../exempleMiniChat" beforeDir="false" afterPath="$PROJECT_DIR$/../exempleMiniChat" afterDir="false" />
     </list>
@@ -44,7 +45,7 @@
       <updated>1586501535276</updated>
       <workItem from="1586501536714" duration="2247000" />
       <workItem from="1586503807315" duration="5917000" />
-      <workItem from="1586845417624" duration="1740000" />
+      <workItem from="1586845417624" duration="2026000" />
     </task>
     <servers />
   </component>
@@ -52,9 +53,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="794" y="444" key="NewPhpFileDialog" timestamp="1586502076593">
+    <state x="794" y="444" key="NewPhpFileDialog" timestamp="1586851845022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="444" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586502076593" />
+    <state x="794" y="444" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586851845022" />
   </component>
 </project>
