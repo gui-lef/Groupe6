@@ -1,5 +1,6 @@
 <?php
 require_once 'src/views/elements/head.php';
+require_once 'src/views/elements/navbar.php';
 require_once 'src/views/elements/footer.php';
 require_once 'src/config/config.php';
 require_once 'src/models/connect.php';
