@@ -1,0 +1,21 @@
+Etant donnée que vous n'avez pas de stage, je vous propose de travailler chacun sur son dossier sur une application.
+Vous devez réaliser le site internet de type e-commerce.
+Vous me proposez le contenue de votre application : chaque personne m'envoie l'info sur les produits que vous souhaitez vendre.
+De ce fait, vous :
+1) me présenter une maquette de votre site
+2) réalisez les pages statiques de votre site
+3) réaliser une présentation CMD
+4) réalisez une base de données
+5) transformez les pages de html vers php
+6) réalisez toutes les opérations permettant d'ajouter, modifier, supprimer des produits
+7) ajoutez des articles dans le panier
+8) l'utilisateur doit arriver dans sa commande jusqu'au paiement
+
+Cette application doit être terminé pour la fin de votre stage.
+
+Je vous accompagnerais dans la réalisation de ce projet de façon individualisée. 
+
+A vous de revenir vers moi avec vos questions.
+-----------------------------------------------------------------
+
+Il s'agit de réaliser un projet que vous aller pouvoir présenter au jury donc appliquez vous!
