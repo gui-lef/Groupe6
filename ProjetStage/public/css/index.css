@@ -1,3 +1,11 @@
+body{
+    background-color:#f7f7f7;
+}
+
+li{
+    list-style-type: none;
+}
+
 .titrebanniere{
     color: aliceblue;
 }
