@@ -1,22 +1,46 @@
-body{
+body
+{
     background-color:#f7f7f7;
 }
 
-li{
+li
+{
     list-style-type: none;
 }
 
-.titrebanniere{
+.titrebanniere
+{
     color: aliceblue;
+    margin-left: 30%;
+    width: 20em;
 }
 
-.card-text{
+.card-text
+{
     font-size: 200%;
 }
-footer{
+footer
+{
 
 }
-.bg-bluedark{
+.bg-bluedark
+{
     background-color: #333F50;
+}
+
+#icone
+{
+position: absolute;
+    top: 0.5em;
+}
+#image
+{
+    position: absolute;
+    right: 0;
+}
+
+.navigation
+{
+    height: 50px;
 }
 
