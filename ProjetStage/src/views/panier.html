@@ -9,8 +9,19 @@
     <title>Les trésors de One Piece</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-bluedark">
-    <div class="titrebanniere">LES TRESORS DE ONE PIECE</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-bluedark p-2">
+    <div class="d-flex align-item-center navigation">
+        <div class="titrebanniere">LES TRESORS DE ONE PIECE</div>
+        <div class="d-flex" id="image">
+            <a href="../../src/views/inscription.html">
+                <img src="../../public/img/items/user1.png" >
+            </a>
+            <a href="../../src/views/panier.html">
+                <img src="../../public/img/items/shop.png" >
+            </a>
+
+        </div>
+    </div>
     <span class="navbar-brand"></span>
     <button class="navbar-toggler" type="button"  data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,10 +61,15 @@
             <div class="card-body">
                 <h5 class="card-title">1 ARTICLE AU PANIER</h5>
                 <form>
-                    <div class="form-group">
-                        <small id="emailHelp" class="form-text text-muted">Veuillez saisir votre adresse email pour créer un compte.</small><br/>
-                        <label for="exampleInputEmail1">Adresse email </label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                    <div class="form-group ">
+                        <img src="../../public/img/articles/figurines/zoro.jpeg" class="w-25" alt="...">
+                        
+                        <h6 class="card-title w-50"  >Figurine Roronoa Zoro – Grandista Manga Dimension– 28 cm
+                        </h6>
+                        <p class="card-text">74,90€</p>
+                        <p>Quantité : 1</p>
+                        <a href="#">Modifier la quantité</a>
+                        <a href="#">supprimer</a>
                     </div>
                     <button type="submit" class="btn bg-bluedark text-light">Creez votre compte</button>
                 </form>
@@ -66,18 +82,8 @@
             <div class="card-body">
                 <h5 class="card-title">RECAPITULATIF</h5>
                 <form>
-                    <div class="form-group">
-                        <br/>
-                        <label for="exampleInputEmail1">Adresse email </label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-                    </div>
 
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Mot de passe</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                        <small id="emailHelp" class="form-text text-muted"><a href="#">Mot de passe oublié ?</a></small>
-                    </div>
-                    <button type="submit" class="btn bg-bluedark text-light">Connexion</button>
+                    <button type="submit" class="btn bg-bluedark text-light">Commander</button>
                 </form>
             </div>
         </div>
@@ -124,7 +130,7 @@
 
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-3  col-lg-2  col-xl-3 ">
-                    <h3>Newsletter </h3>
+                    <h5>Newsletter </h5>
                     <p>Pour être tenu informé des dernières nouveautés et promos</p>
                     <form action="#" method="Post">
                         <input type="text" name="text" placeholder="Adresse email">
