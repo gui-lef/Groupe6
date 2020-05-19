@@ -11,13 +11,13 @@ function carousel(){
     </ol>
     <div class="carousel-inner ">
         <div class="carousel-item active">
-            <img src="public/img/habillageSite/ban111.jpg" class="d-block h-25" alt="...">
+            <img src="../../../public/img/habillageSite/ban111.jpg" class="d-block h-25" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="public/img/habillageSite/banlivre.png" class="d-block h-25" alt="...">
+            <img src="../../../public/img/habillageSite/banlivre.png" class="d-block h-25" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="public/img/habillageSite/ban13.jpg" class="d-block h-25" alt="...">
+            <img src="../../../public/img/habillageSite/ban13.jpg" class="d-block h-25" alt="...">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
