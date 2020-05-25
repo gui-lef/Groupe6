@@ -118,7 +118,17 @@ position: absolute;
     border-left: 1px solid #333F50
 }
 
-.searchbar-open {
+.searchbar-open
+{
     width: 100%
+}
+.label
+{
+    width: 45%;
+}
+
+.w-45
+{
+    width: 45%;
 }
 
