@@ -19,9 +19,6 @@ function head(){
     <div class="d-flex align-item-center navigation">
         <div class="titrebanniere">LES TRESORS DE ONE PIECE</div>
         <div class="d-flex" id="image">
-            <div class="container">                                     <!-- barre de recherche -->
-                <form class="searchbar"> <input type="search" placeholder="Rechercher" name="search" class="searchbar-input" onkeyup="buttonUp();" required> <input type="submit" class="searchbar-submit" value="GO"> <span class="searchbar-icon"><a href="public/img/items/searchB.png" class="w-50"></a> </span> </form>
-            </div>
             <a href="../../../src/views/inscription.php">
                 <img src="../../../public/img/items/user1.png" >
             </a>

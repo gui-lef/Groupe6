@@ -8,15 +8,64 @@ head();
 $db = connection();
 
 if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['adresse']) && isset($_POST['adresseComplementaire']) && isset($_POST['codePostal']) && isset($_POST['ville'])
-                && isset($_POST['email']) && isset($_POST['mdp']) && isset($_POST['confMdp'])){
+                && isset($_POST['email']) && isset($_POST['mdp']) && isset($_POST['ville']) && isset($_POST['pays']) && isset($_POST['confMdp'])){
     $nom=htmlspecialchars(trim($_POST['nom']));
     $prenom=htmlspecialchars(trim($_POST['prenom']));
     $adresse=htmlspecialchars(trim($_POST['adresse']));
+    $tel=htmlspecialchars(trim($_POST['tel']));
     $adresseComplementaire=htmlspecialchars(trim($_POST['adresseComplementaire']));
     $codePostal=htmlspecialchars(trim($_POST['codePostal']));
     $email=htmlspecialchars(trim($_POST['email']));
+    $confEmail=htmlspecialchars((trim($_POST['confEmail'])));
     $mdp=htmlspecialchars(trim($_POST['mdp']));
     $confMdp=htmlspecialchars(trim($_POST['confMdp']));
+    $ville=htmlspecialchars(trim($_POST['ville']));
+    $pays=htmlspecialchars(trim($_POST['pays']));
+
+    //$sqlSelectEmail="SELECT idUtilisateur FROM utilisateur WHERE emailUti =".$email; //
+    $sqlSelectEmail="SELECT idUtilisateur FROM utilisateur WHERE emailUti =:email";
+    $reqSelectEmail=$db->prepare($sqlSelectEmail);
+    $reqSelectEmail->bindParam(":email",$email);
+
+    $reqSelectEmail->execute();
+
+    $tableauEmail=array(); //declarer tableau//
+    while ($data=$reqSelectEmail->fetchObject()){
+        array_push($tableauEmail,$data);
+    } //avec data recherche sur chaque ligne , fetch récupère/rapporte sous forme d'objet//
+
+    if (!empty($tableauEmail)){
+        echo "L'adresse email est déjà utilisée";
+
+    }
+    else {
+        $sqlSelectAdresse="SELECT idAdresse FROM adresse 
+                           WHERE adresse1=:ad1 
+                           AND adresseComplementaire=:ad2
+                           AND codePostal=:ad3
+                           AND nomVille=:ad4
+                           AND nomPays=:ad5";
+        $reqSelectAdresse=$db->prepare($sqlSelectAdresse);
+        $reqSelectAdresse->bindParam(":ad1",$adresse);
+        $reqSelectAdresse->bindParam(":ad2",$adresseComplementaire);
+        $reqSelectAdresse->bindParam(":ad3",$codePostal);
+        $reqSelectAdresse->bindParam(":ad4",$ville);
+        $reqSelectAdresse->bindParam(":ad5",$pays);
+
+        $reqSelectAdresse->execute();
+
+    $tableauAdresse=array();
+        while ($data=$reqSelectAdresse->fetchObject()){
+        array_push($tableauAdresse,$data);
+        }
+        if (!empty($tableauAdresse)){
+            $idAdd=$tableauAdresse[0]->idAdresse;
+        }
+        else{
+           // insert add et recup id//
+        }
+    }
+
                             };
 
 
@@ -29,34 +78,32 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['adresse']) 
                 <div class="card-body" style="border:1px solid #333F50;">
                     <h5 class="card-title">CREEZ VOTRE COMPTE</h5> <hr style="background-color:#333F50;border-width: 1px">
                            <form method="post" action="inscription.php">
-                                                                        <!--Nom et prenom-->
+                                                                    <!--Nom et prenom-->
 
-                                    <div class=" mb-2 d-flex justify-content-between ">
-                                        <label for="validationCustom01" class="label">Nom</label>
-                                        <label for="validationCustom01"class="label">Prénom</label>
-                                    </div>
+                                <div class=" mb-2 d-flex justify-content-between ">
+                                    <label for="validationCustom01" class="label">Nom</label>
+                                    <label for="validationCustom01"class="label">Prénom</label>
+                                </div>
 
-
-
-                                <div class=" mb-2 d-flex justify-content-between">
+                               <div class=" mb-2 d-flex justify-content-between">
                                     <input type="text" class="form-control w-45" name="nom" id="nom" placeholder="" required>
                                     <input type="text" class="form-control w-45" name="prenom" id="prenom" placeholder="" required>
                                 </div>
 
-                                                                        <!--Adresse et adresse complementaire-->
+                                                                    <!--Adresse et adresse complementaire-->
+
                                 <div class=" mb-2 d-flex justify-content-between"
                                     <label for="adresse" class="label">Adresse</label>
                                     <label for="adresseComplementaire" class="label">Adresse complèmentaire</label>
-
                                 </div>
 
-
                                 <div class=" mb-2 d-flex justify-content-between">
-                                <input type="text" class="form-control w-45" name="adresse" id="adresse" placeholder=""  required>
-                                <input type="text" class="form-control w-45" name="adresseComplementaire" id="adresseComplementaire" placeholder=""  required>
-                            </div>
+                                    <input type="text" class="form-control w-45" name="adresse" id="adresse" placeholder=""  required>
+                                    <input type="text" class="form-control w-45" name="adresseComplementaire" id="adresseComplementaire" placeholder=""  required>
+                                </div>
 
-                                                                         <!--Code postal et ville-->
+                                                                     <!--Code postal et ville-->
+
                                 <div class=" mb-2  d-flex justify-content-between">
                                     <label for="codePostal" class="label">Code postal</label>
                                     <label for="ville" class="label">Ville</label>
@@ -65,36 +112,51 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['adresse']) 
                                 <div class=" mb-2  d-flex justify-content-between ">
                                     <input type="text" class="form-control w-25  label" id="codePostal" name="codePostal" placeholder="" required>
                                     <input type="text" class="form-control w-45  label" id="ville" name="ville" placeholder="" required>
-                            </div>
-                                                                        <!--Email et pays-->
-                            <div class="mb-2 d-flex justify-content-between">
-                                <label for="email"class="label">Adresse email </label>
-                                <label for="pays"class="label">Pays </label>
-                            </div>
-                            <div class=" mb-2  d-flex justify-content-between ">
+                                </div>
 
-                                <input type="email" class="form-control w-45" name="email" id="email" aria-describedby="emailHelp" placeholder="">
-                                <input type="text" class="form-control w-45" name="pays" id="pays"  placeholder="">
-                            </div>
-                <!--Mot de passe-->
-                <div class=" mb-2 d-flex justify-content-between">
-                    <label for="mdp" class="label">Mot de passe </label>
-                    <label for="confMdp"class="label">Confirmer le mot de passe </label>
-                </div>
-
-                <div class= "mb-2 d-flex justify-content-between">
-                    <input type="password" id="inputPassword5" name="confMdp" class="form-control w-45" aria-describedby="passwordHelpBlock">
-                    <input type="password" id="inputPassword5" name="mdp" class="form-control w-45" aria-describedby="passwordHelpBlock">
-                </div>
-                <div class="mb-3">
+                                                                    <!--Tel et pays-->
 
 
-                    <small >Au moins une Majuscule et 9 caractères</small>
-                </div>
+                                <div class="mb-2 d-flex justify-content-between">
+                                    <label for="tel"class="label">Téléphone </label>
+                                    <label for="pays"class="label">Pays </label>
+                                </div>
+
+                                <div class=" mb-2  d-flex justify-content-between ">
+
+                                    <input type="number" class="form-control w-45" name="tel" id="tel" placeholder="">
+                                    <input type="text" class="form-control w-45" name="pays" id="pays"  placeholder="">
+                                </div>
+
+                                                                <!--Email et confirmation email-->
 
 
+                                <div class="mb-2 d-flex justify-content-between">
+                                    <label for="email"class="label">Adresse email </label>
+                                    <label for="confEmail"class="label">Confirmation de l'email </label>
+                                </div>
 
-                    <button type="submit" class="btn bg-bluedark text-light mt-3">Creez votre compte</button>
+                                <div class=" mb-2  d-flex justify-content-between ">
+
+                                    <input type="email" class="form-control w-45" name="email" id="email" aria-describedby="emailHelp" placeholder="">
+                                    <input type="email" class="form-control w-45" name="confEmail" id="confEmail"  placeholder="">
+                                </div>
+
+                                                                    <!--Mot de passe et confirmation mot de passe-->
+
+                                <div class=" mb-2 d-flex justify-content-between">
+                                    <label for="mdp" class="label">Mot de passe </label>
+                                    <label for="confMdp"class="label">Confirmation le mot de passe </label>
+                                </div>
+
+                                <div class= "mb-2 d-flex justify-content-between">
+                                    <input type="password" id="mdp" name="mdp" class="form-control w-45" aria-describedby="passwordHelpBlock">
+                                    <input type="password" id="confMdp" name="confMdp" class="form-control w-45" aria-describedby="passwordHelpBlock">
+                                </div>
+                                <div class="mb-3">
+                                    <small >Au moins une majuscule et 6 caractères</small>
+                                </div>
+                                <button type="submit" id="btnInscription" class="btn bg-bluedark text-light mt-3">Creez votre compte</button>
                         </form>
                     </div>
                 </div>

@@ -1,39 +1,38 @@
-$(document).ready(function(){
-    var submitIcon = $('.searchbar-icon');
-    var inputBox = $('.searchbar-input');
-    var searchbar = $('.searchbar');
-    var isOpen = false;
-    submitIcon.click(function(){
-        if(isOpen == false){
-            searchbar.addClass('searchbar-open');
-            inputBox.focus();
-            isOpen = true;
-        } else {
-            searchbar.removeClass('searchbar-open');
-            inputBox.focusout();
-            isOpen = false;
-        }
-    });
-    submitIcon.mouseup(function(){
+
+function verifInscription(){
+    var verifmail=/^[a-zA-Z0-9]{1}[a-zA-Z0-9_.-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,6}$/ ;
+    var verifmdp=/^[a-zA-Z0-9_.*^!?$,;:\-+&@]*[A-Z]{1}[a-zA-Z0-9_.*^!?,;:\-+&@]*$/;
+
+    var mdp=document.getElementById("mdp").value;
+    var confmdp=document.getElementById("confMdp").value;
+    var confemail=document.getElementById("confEmail").value;
+    var email=document.getElementById("email").value;
+
+    if (mdp.length <6){
+        alert("Mot de passe trop court,veuillez saisir 6 caractères minimum");
         return false;
-    });
-    searchbar.mouseup(function(){
+    }
+
+   else if (!verifmdp.test(mdp)) {
+       alert("Mot de passe doit avoir au moins une majuscule");
+       return false;
+   }
+
+   else if (confmdp !== mdp){
+       alert("Erreur dans la confirmation du mot de passe");
+       return false;
+   }
+
+   else if (!verifmail.test(email)){
+       alert("Adresse email invalide");
+       return false;
+   }
+   else if(confemail !== email){
+       alert("Erreur dans la confirmation de l'email")
         return false;
-    });
-    $(document).mouseup(function(){
-        if(isOpen == true){
-            $('.searchbar-icon').css('display','block');
-            submitIcon.click();
-        }
-    });
-});
-function buttonUp(){
-    var inputVal = $('.searchbar-input').val();
-    inputVal = $.trim(inputVal).length;
-    if( inputVal !== 0){
-        $('.searchbar-icon').css('display','none');
-    } else {
-        $('.searchbar-input').val('');
-        $('.searchbar-icon').css('display','block');
+    }
+   else {
+       return true;
     }
 }
+document.getElementById("btnInscription").addEventListener("click", verifInscription , false);

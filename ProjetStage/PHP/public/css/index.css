@@ -52,7 +52,8 @@ position: absolute;
     font-size: 0.8em;
 }
 /** barre de recherche **/
-.searchbar {
+.searchbar
+{
     position: relative;
     min-width: 50px;
     width: 0%;
@@ -66,7 +67,8 @@ position: absolute;
     transition: width 0.3s
 }
 
-.searchbar-input {
+.searchbar-input
+{
     top: 0;
     right: 0;
     border: 0;
@@ -80,24 +82,29 @@ position: absolute;
     color: #333F50
 }
 
-.searchbar-input::-webkit-input-placeholder {
+.searchbar-input::-webkit-input-placeholder
+{
     color: #333F50
 }
 
-.searchbar-input:-moz-placeholder {
+.searchbar-input:-moz-placeholder
+{
     color: #333F50
 }
 
-.searchbar-input::-moz-placeholder {
+.searchbar-input::-moz-placeholder
+{
     color: #333F50
 }
 
-.searchbar-input:-ms-input-placeholder {
+.searchbar-input:-ms-input-placeholder
+{
     color: #333F50
 }
 
 .searchbar-icon,
-.searchbar-submit {
+.searchbar-submit
+{
     width: 50px;
     height: 50px;
     display: block;
