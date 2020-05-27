@@ -7,66 +7,116 @@ require_once '../models/connect.php';
 head();
 $db = connection();
 
-if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['adresse']) && isset($_POST['adresseComplementaire']) && isset($_POST['codePostal']) && isset($_POST['ville'])
-                && isset($_POST['email']) && isset($_POST['mdp']) && isset($_POST['ville']) && isset($_POST['pays']) && isset($_POST['confMdp'])){
-    $nom=htmlspecialchars(trim($_POST['nom']));
-    $prenom=htmlspecialchars(trim($_POST['prenom']));
-    $adresse=htmlspecialchars(trim($_POST['adresse']));
-    $tel=htmlspecialchars(trim($_POST['tel']));
-    $adresseComplementaire=htmlspecialchars(trim($_POST['adresseComplementaire']));
-    $codePostal=htmlspecialchars(trim($_POST['codePostal']));
-    $email=htmlspecialchars(trim($_POST['email']));
-    $confEmail=htmlspecialchars((trim($_POST['confEmail'])));
-    $mdp=htmlspecialchars(trim($_POST['mdp']));
-    $confMdp=htmlspecialchars(trim($_POST['confMdp']));
-    $ville=htmlspecialchars(trim($_POST['ville']));
-    $pays=htmlspecialchars(trim($_POST['pays']));
+    if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['adresse']) && isset($_POST['tel']) && isset($_POST['adresseComplementaire']) && isset($_POST['codePostal']) && isset($_POST['ville'])
+        && isset($_POST['email']) && isset($_POST['mdp']) && isset($_POST['ville']) && isset($_POST['pays']) && isset($_POST['confMdp'])) {
+        $nom = htmlspecialchars(trim($_POST['nom']));
+        $prenom = htmlspecialchars(trim($_POST['prenom']));
+        $adresse = htmlspecialchars(trim($_POST['adresse']));
+        $tel = htmlspecialchars(trim($_POST['tel']));
+        $adresseComplementaire = htmlspecialchars(trim($_POST['adresseComplementaire']));
+        $codePostal = htmlspecialchars(trim($_POST['codePostal']));
+        $email = htmlspecialchars(trim($_POST['email']));
+        $confEmail = htmlspecialchars((trim($_POST['confEmail'])));
+        $mdp =password_hash(htmlspecialchars(trim($_POST['mdp'])),PASSWORD_BCRYPT) ;
+        $confMdp = htmlspecialchars(trim($_POST['confMdp']));
+        $ville = htmlspecialchars(trim($_POST['ville']));
+        $pays = htmlspecialchars(trim($_POST['pays']));
 
-    //$sqlSelectEmail="SELECT idUtilisateur FROM utilisateur WHERE emailUti =".$email; //
-    $sqlSelectEmail="SELECT idUtilisateur FROM utilisateur WHERE emailUti =:email";
-    $reqSelectEmail=$db->prepare($sqlSelectEmail);
-    $reqSelectEmail->bindParam(":email",$email);
+        //$sqlSelectEmail="SELECT idUtilisateur FROM utilisateur WHERE emailUti =".$email; //
+        $sqlSelectEmail = "SELECT idUtilisateur FROM utilisateur WHERE emailUti =:email";
+        $reqSelectEmail = $db->prepare($sqlSelectEmail);
+        $reqSelectEmail->bindParam(":email", $email);
 
-    $reqSelectEmail->execute();
+        $reqSelectEmail->execute();
 
-    $tableauEmail=array(); //declarer tableau//
-    while ($data=$reqSelectEmail->fetchObject()){
-        array_push($tableauEmail,$data);
-    } //avec data recherche sur chaque ligne , fetch récupère/rapporte sous forme d'objet//
+        $tableauEmail = array(); //declarer tableau//
+        while ($data = $reqSelectEmail->fetchObject()) {
+            array_push($tableauEmail, $data);
+        } //avec data recherche sur chaque ligne , fetch récupère/rapporte sous forme d'objet//
 
-    if (!empty($tableauEmail)){
-        echo "L'adresse email est déjà utilisée";
+        if (!empty($tableauEmail)) {
+            echo "L'adresse email est déjà utilisée";
 
-    }
-    else {
-        $sqlSelectAdresse="SELECT idAdresse FROM adresse 
+        }
+        else {
+            $sqlSelectAdresse = "SELECT idAdresse FROM adresse 
                            WHERE adresse1=:ad1 
                            AND adresseComplementaire=:ad2
                            AND codePostal=:ad3
                            AND nomVille=:ad4
                            AND nomPays=:ad5";
-        $reqSelectAdresse=$db->prepare($sqlSelectAdresse);
-        $reqSelectAdresse->bindParam(":ad1",$adresse);
-        $reqSelectAdresse->bindParam(":ad2",$adresseComplementaire);
-        $reqSelectAdresse->bindParam(":ad3",$codePostal);
-        $reqSelectAdresse->bindParam(":ad4",$ville);
-        $reqSelectAdresse->bindParam(":ad5",$pays);
+            $reqSelectAdresse = $db->prepare($sqlSelectAdresse);
+            $reqSelectAdresse->bindParam(":ad1", $adresse);
+            $reqSelectAdresse->bindParam(":ad2", $adresseComplementaire);
+            $reqSelectAdresse->bindParam(":ad3", $codePostal);
+            $reqSelectAdresse->bindParam(":ad4", $ville);
+            $reqSelectAdresse->bindParam(":ad5", $pays);
 
-        $reqSelectAdresse->execute();
+            $reqSelectAdresse->execute();
 
-    $tableauAdresse=array();
-        while ($data=$reqSelectAdresse->fetchObject()){
-        array_push($tableauAdresse,$data);
+
+        $tableauAdresse = array();
+        while ($data=$reqSelectAdresse->fetchObject()) {
+            array_push($tableauAdresse, $data);
         }
-        if (!empty($tableauAdresse)){
-            $idAdd=$tableauAdresse[0]->idAdresse;
+        if (!empty($tableauAdresse)) {
+            $idAdd =intval($tableauAdresse[0]->idAdresse);
         }
-        else{
-           // insert add et recup id//
+        else {
+            $sqlInsertAdresse = "INSERT INTO adresse (adresse1,adressecomplementaire,codePostal,nomVille,nomPays) 
+                          VALUES (:ad1,:ad2,:ad3,:ad4,:ad5)";
+            $reqInsertAdresse = $db->prepare($sqlInsertAdresse);
+            $reqInsertAdresse->bindParam(":ad1", $adresse);
+            $reqInsertAdresse->bindParam(":ad2", $adresseComplementaire);
+            $reqInsertAdresse->bindParam(":ad3", $codePostal);
+            $reqInsertAdresse->bindParam(":ad4", $ville);
+            $reqInsertAdresse->bindParam(":ad5", $pays);
+
+            $reqInsertAdresse->execute();
+            $idAdd =intval($db->lastInsertId());
         }
+
+
+        $sqlIdUtilisateur = "SELECT idTypeUtilisateur FROM typeutilisateur WHERE nomTypeUtilisateur='Client'";
+        $reqIdUtilisateur = $db->prepare($sqlIdUtilisateur);
+        $reqIdUtilisateur->execute();
+
+        $tableauId = array();
+        while ($data = $reqIdUtilisateur->fetchObject()) {
+            array_push($tableauId, $data);
+        }
+        if (!empty($tableauId)) {
+            $idTypeU =intval($tableauId[0]->idTypeUtilisateur);
+        }
+        else {
+            $sqlClient = "INSERT INTO typeutilisateur (nomTypeUtilisateur) VALUES ('Client')";
+            $reqClient = $db->prepare($sqlClient);
+            $reqClient->execute();
+            $idTypeU =intval($db->lastInsertId()) ;
+        }
+
+
+            $sqlUtilisateur = "INSERT INTO utilisateur (nomUti,prenomUti,emailUti,mdpUti,telUti,typeUtilisateur_idTypeUtilisateur,adresse_idAdresse) 
+                               VALUES (:uti1,:uti2,:uti3,:uti4,:uti5,:uti6,:uti7)";
+            $reqUtilisateur = $db->prepare($sqlUtilisateur);
+            $reqUtilisateur->bindParam(":uti1",$nom);
+            $reqUtilisateur->bindParam(":uti2",$prenom);
+            $reqUtilisateur->bindParam(":uti3",$email);
+            $reqUtilisateur->bindParam(":uti4",$mdp);
+            $reqUtilisateur->bindParam(":uti5",$tel);
+            $reqUtilisateur->bindParam(":uti6",$idTypeU);
+            $reqUtilisateur->bindParam(":uti7",$idAdd);
+
+            $reqUtilisateur->execute();
+            echo "enregistrement bien effectué";
+
+
+
+    }
     }
 
-                            };
+
+
 
 
 ?>
@@ -162,29 +212,29 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['adresse']) 
                 </div>
             </div>
 
+    <div class="col-xs-6 col-sm-6 col-md-4  col-lg-4  col-xl-4 ">
+        <div class="card">
+            <div class="card-body" style="border:1px solid #333F50;">
+                <h5 class="card-title">DEJA INSCRIT ?</h5><hr style="background-color:#333F50;border-width: 1px">
+                <form>
+                    <div class="form-group">
+                        <br/>
+                        <label for="exampleInputEmail1">Adresse email </label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                    </div>
 
-
-        <div class="col-xs-6 col-sm-6 col-md-4  col-lg-4  col-xl-4 ">
-            <div class="card">
-                <div class="card-body" style="border:1px solid #333F50;">
-                    <h5 class="card-title">DEJA INSCRIT ?</h5><hr style="background-color:#333F50;border-width: 1px">
-                    <form>
-                        <div class="form-group">
-                            <br/>
-                            <label for="exampleInputEmail1">Adresse email </label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Mot de passe</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                            <small id="emailHelp" class="form-text text-muted"><a href="#">Mot de passe oublié ?</a></small>
-                        </div>
-                        <button type="submit" class="btn bg-bluedark text-light">Connexion</button>
-                    </form>
-                </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Mot de passe</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                        <small id="emailHelp" class="form-text text-muted"><a href="#">Mot de passe oublié ?</a></small>
+                    </div>
+                    <button type="submit" class="btn bg-bluedark text-light">Connexion</button>
+                </form>
             </div>
         </div>
     </div>
+    </div>
+
+
 <?php
 footer();
