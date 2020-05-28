@@ -17,14 +17,41 @@ function head(){
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-bluedark p-2">
     <div class="d-flex align-item-center navigation">
-        <div class="titrebanniere">LES TRESORS DE ONE PIECE</div>
+        <div class="titrebanniere "><a class="text-light" href="../../../index.php "> LES TRESORS DE ONE PIECE</a></div>
         <div class="d-flex" id="image">
-            <a href="../../../src/views/inscription.php">
-                <img src="../../../public/img/items/user1.png" >
-            </a>
-            <a href="../../../src/views/panier.php">
-                <img src="../../../public/img/items/shop.png" >
-            </a>
+            <ul >
+                <li>
+                    <?php
+                        if(isset($_SESSION['prenom']))
+                        {
+                    ?>
+                            <span class="text-light">Bonjour <?= $_SESSION['prenom'] ?></span>
+                    <?php } ?>
+                    <?php
+                    if(isset($_SESSION['prenom']))
+                        {
+                    ?>
+                    <a href="../../../src/views/deconnexion.php">
+                        <img src="../../../public/img/items/icone_deco_blanc.png"
+                    </a>
+
+                        <?php
+                        }
+
+                    if(!isset($_SESSION['prenom']))
+                    {
+                    ?>
+                    <a href="../../../src/views/inscription.php">
+                        <img src="../../../public/img/items/user1.png" >
+                    </a>
+                    <?php } ?>
+
+                    <a href="../../../src/views/panier.php">
+                        <img src="../../../public/img/items/shop.png" >
+                    </a>
+
+                </li>
+            </ul>
 
         </div>
     </div>

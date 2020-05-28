@@ -5,12 +5,13 @@ require_once 'src/views/elements/footer.php';
 require_once 'src/config/config.php';
 require_once 'src/models/connect.php';
 
-
+session_start();
 head();
 carousel();
 $db = connection();
 
 ?>
+
     <!--Articles-->
     <div class="container">
         <div class="row mt-4 d-flex ">

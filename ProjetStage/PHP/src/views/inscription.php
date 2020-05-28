@@ -6,7 +6,7 @@ require_once '../models/connect.php';
 
 head();
 $db = connection();
-
+                                                        //inscription//
     if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['adresse']) && isset($_POST['tel']) && isset($_POST['adresseComplementaire']) && isset($_POST['codePostal']) && isset($_POST['ville'])
         && isset($_POST['email']) && isset($_POST['mdp']) && isset($_POST['ville']) && isset($_POST['pays']) && isset($_POST['confMdp'])) {
         $nom = htmlspecialchars(trim($_POST['nom']));
@@ -108,12 +108,48 @@ $db = connection();
             $reqUtilisateur->bindParam(":uti7",$idAdd);
 
             $reqUtilisateur->execute();
-            echo "enregistrement bien effectué";
-
-
-
+            echo '<div class="text-center text-light bg-success">enregistrement bien effectué</div>';
+        }
     }
-    }
+                                                        //Connexion//
+    if (isset($_POST['emailConnex']) && (isset($_POST['mdpConnex']))){
+        $emailConnex = htmlspecialchars(trim($_POST['emailConnex']));
+        $mdpConnex =htmlspecialchars(trim($_POST['mdpConnex'])) ;
+
+        $sqlSelectEmailCo = "SELECT idUtilisateur,mdpUti,prenomUti FROM utilisateur WHERE emailUti =:emailConnex";
+        $reqSelectEmailCo = $db->prepare($sqlSelectEmailCo);
+        $reqSelectEmailCo->bindParam(":emailConnex", $emailConnex);
+
+        $reqSelectEmailCo->execute();
+
+        $tableauEmailCo=array();
+        while ($data=$reqSelectEmailCo->fetchObject()) {
+            array_push($tableauEmailCo,$data);
+            }
+         if (empty ($tableauEmailCo)){
+             echo'<div class="text-center text-light bg-danger">Email inexistant,veuillez creer un compte.</div>';
+            }
+         else {
+             $verifOK=password_verify($mdpConnex,$tableauEmailCo[0]->mdpUti);
+         }
+         if (!$verifOK){
+             echo'<div class="text-center text-light bg-danger">Email ou mot de passe incorrect.</div>';
+         }
+         else{
+             session_start();
+
+             $_SESSION['prenom']=$tableauEmailCo[0]->prenomUti;
+             $_SESSION['idUtilisateur']=$tableauEmailCo[0]->idUtilisateur;
+             header('location:../../index.php');
+
+         }
+
+
+        }
+
+
+
+
 
 
 
@@ -128,16 +164,18 @@ $db = connection();
                 <div class="card-body" style="border:1px solid #333F50;">
                     <h5 class="card-title">CREEZ VOTRE COMPTE</h5> <hr style="background-color:#333F50;border-width: 1px">
                            <form method="post" action="inscription.php">
-                                                                    <!--Nom et prenom-->
+                                                                    <!-- Prenom et Nom -->
 
                                 <div class=" mb-2 d-flex justify-content-between ">
-                                    <label for="validationCustom01" class="label">Nom</label>
                                     <label for="validationCustom01"class="label">Prénom</label>
+                                    <label for="validationCustom01" class="label">Nom</label>
+
                                 </div>
 
                                <div class=" mb-2 d-flex justify-content-between">
+                                   <input type="text" class="form-control w-45" name="prenom" id="prenom" placeholder="" required>
                                     <input type="text" class="form-control w-45" name="nom" id="nom" placeholder="" required>
-                                    <input type="text" class="form-control w-45" name="prenom" id="prenom" placeholder="" required>
+
                                 </div>
 
                                                                     <!--Adresse et adresse complementaire-->
@@ -211,28 +249,28 @@ $db = connection();
                     </div>
                 </div>
             </div>
+                                                                    <!-- Connexion-->
+            <div class="col-xs-6 col-sm-6 col-md-4  col-lg-4  col-xl-4 ">
+                <div class="card">
+                    <div class="card-body" style="border:1px solid #333F50;">
+                        <h5 class="card-title">DEJA INSCRIT ?</h5><hr style="background-color:#333F50;border-width: 1px">
+                            <form method="post" action="inscription.php">
+                                <div class="form-group">
+                                    <br/>
+                                    <label for="emailConnex">Adresse email </label>
+                                    <input type="email" class="form-control " id="email" name="emailConnex" aria-describedby="emailHelp" placeholder="">
+                                </div>
 
-    <div class="col-xs-6 col-sm-6 col-md-4  col-lg-4  col-xl-4 ">
-        <div class="card">
-            <div class="card-body" style="border:1px solid #333F50;">
-                <h5 class="card-title">DEJA INSCRIT ?</h5><hr style="background-color:#333F50;border-width: 1px">
-                <form>
-                    <div class="form-group">
-                        <br/>
-                        <label for="exampleInputEmail1">Adresse email </label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Mot de passe</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                        <small id="emailHelp" class="form-text text-muted"><a href="#">Mot de passe oublié ?</a></small>
-                    </div>
-                    <button type="submit" class="btn bg-bluedark text-light">Connexion</button>
-                </form>
-            </div>
-        </div>
-    </div>
+                                <div class="form-group">
+                                    <label for="mdpConnex">Mot de passe</label>
+                                    <input type="password" class="form-control " id="mdp" name="mdpConnex" placeholder="">
+                                    <small id="emailHelp" class="form-text text-muted"><a href="#">Mot de passe oublié ?</a></small>
+                                </div>
+                                <button type="submit" class="btn bg-bluedark text-light">Connexion</button>
+                            </form>
+                        </div>
+                  </div>
+             </div>
     </div>
 
 
