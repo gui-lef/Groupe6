@@ -25,14 +25,14 @@ function head(){
                         if(isset($_SESSION['prenom']))
                         {
                     ?>
-                            <span class="text-light">Bonjour <?= $_SESSION['prenom'] ?></span>
+                            <span class="text-light">Bonjour <a href="../../../src/views/compte.php" ><?= $_SESSION['prenom']  ?></a></span>
                     <?php } ?>
                     <?php
                     if(isset($_SESSION['prenom']))
                         {
                     ?>
                     <a href="../../../src/views/deconnexion.php">
-                        <img src="../../../public/img/items/icone_deco_blanc.png"
+                        <img title="Deconnexion" src="../../../public/img/items/icone_deco_blanc.png"
                     </a>
 
                         <?php
@@ -42,12 +42,12 @@ function head(){
                     {
                     ?>
                     <a href="../../../src/views/inscription.php">
-                        <img src="../../../public/img/items/user1.png" >
+                        <img class="Inscription/Connexion" src="../../../public/img/items/user1.png" >
                     </a>
                     <?php } ?>
 
                     <a href="../../../src/views/panier.php">
-                        <img src="../../../public/img/items/shop.png" >
+                        <img title="Panier" class="panier" src="../../../public/img/items/shop.png" >
                     </a>
 
                 </li>
