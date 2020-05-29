@@ -15,49 +15,76 @@ $db = connection();
 
 
     <!--Articles-->
-    <div class="container">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="product-grid h-100 bg-white">
+                    <div class="product-image">
+                        <a href="#">
+                            <img class="pic-1 " src="../../public/img/articles/livres/tome1.jpg">
+                            <img class="pic-2" src="../../public/img/articles/livres/Tome1.jpg">
+                        </a>
+                        <ul class="social">
+                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
+                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
 
-        <div class="row mt-4 d-flex ">
-            <div class="col-xs-6 col-sm-6 col-md-4  col-lg-4  col-xl-4 ">
-                <div class="card">
-                    <img src="../../public/img/articles/livres/tome96.png" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title"  >Manga One Piece - Tome 96 - Edition originale
-                        </h6>
-                        <p class="card-text">6,90€</p>
-                        <a href="#" class="btn btn-danger">AJOUTER AU PANIER</a>
+                    </div>
+
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">Manga One Piece - Tome 1 - Edition originale</a></h3>
+                        <div class="price">5,90€
+
+                        </div>
+                        <button type="button" class="btn btn-outline-danger href=">Ajouter au panier</button>
                     </div>
                 </div>
             </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="product-grid h-100 bg-white">
+                    <div class="product-image">
+                        <a href="#">
+                            <img class="pic-1 " src="../../public/img/articles/livres/roman1.jpg">
+                            <img class="pic-2" src="../../public/img/articles/livres/roman.jpeg">
+                        </a>
+                        <ul class="social">
+                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
+                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
 
-            <div class="col-xs-6 col-sm-6 col-md-4  col-lg-4  col-xl-4 ">
-                <div class="card">
-                    <img src="../../public/img/articles/livres/roman1.jpg" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title"  >Roman Novel - One Piece - Ace 1ere partie
-                        </h6>
-                        <p class="card-text">6,90€</p>
-                        <a href="#" class="btn btn-danger">AJOUTER AU PANIER</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">Roman One Piece - Ace - Part 1 </a></h3>
+                        <div class="price">7,90€
+
+                        </div>
+                        <button type="button" class="btn btn-outline-danger href=">Ajouter au panier</button>
                     </div>
                 </div>
             </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="product-grid h-100 bg-white">
+                    <div class="product-image">
+                        <a href="#">
+                            <img class="pic-1 " src="../../public/img/articles/livres/tome96_.jpg">
+                            <img class="pic-2" src="../../public/img/articles/livres/tome96.png">
+                        </a>
+                        <ul class="social">
+                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
+                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
 
-            <div class="col-xs-6 col-sm-6 col-md-4  col-lg-4  col-xl-4 ">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">Manga One Piece - Tome 96 - Edition originale</a></h3>
+                        <div class="price">6,90€
 
-                <div class="card">
-                    <img src="../../public/img/articles/livres/Tome1.jpg" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title"  >Manga One Piece - Tome 1 - Edition originale
-                        </h6>
-                        <p class="card-text">5,90€</p>
-                        <a href="#" class="btn btn-danger">AJOUTER AU PANIER</a>
+                        </div>
+                        <button type="button" class="btn btn-outline-danger href=">Ajouter au panier</button>
                     </div>
                 </div>
-
             </div>
-
         </div>
-    </div>
     </div>
 <?php
 footer();

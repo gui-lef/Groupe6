@@ -15,49 +15,75 @@ $db = connection();
 
 
     <!--Articles-->
-    <div class="container">
-        <div class="row mt-4 d-flex ">
-            <div class="col-xs-6 col-sm-6 col-md-4  col-lg-4  col-xl-4 ">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="product-grid h-100 bg-white">
+                    <div class="product-image">
+                        <a href="#">
+                            <img class="pic-1" src="../../public/img/articles/vetements/sweat_law.jpg">
+                            <img class="pic-2" src="../../public/img/articles/vetements/sweat_law2.jpg">
+                        </a>
+                        <ul class="social">
+                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
+                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
 
-                <div class="card">
-                    <img src="../../public/img/articles/vetements/casquette_chopper.jpg" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title"  >Casquette Chopper
-                        </h6>
-                        <p class="card-text">19,90€</p>
-                        <a href="#" class="btn btn-danger">AJOUTER AU PANIER</a>
                     </div>
-                </div>
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">Sweat Trafalgar Law - Noir </a></h3>
+                        <div class="price">24,90€
 
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-4  col-lg-4  col-xl-4 ">
-                <div class="card">
-                    <img src="../../public/img/articles/figurines/kinenom.jpg" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title"  >Figurine Kinemon – DFX The Grandline Men– 21 cm
-                        </h6>
-                        <p class="card-text">49,90€</p>
-                        <a href="#" class="btn btn-danger">AJOUTER AU PANIER</a>
+                        </div>
+                        <button type="button" class="btn btn-outline-danger href=">Ajouter au panier</button>
                     </div>
                 </div>
             </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="product-grid h-100 bg-white">
+                    <div class="product-image">
+                        <a href="#">
+                            <img class="pic-1" src="../../public/img/articles/vetements/casquette_chopper.jpg">
+                            <img class="pic-2" src="../../public/img/articles/vetements/casquette_chopper2.jpg">
+                        </a>
+                        <ul class="social">
+                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
+                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
 
-            <div class="col-xs-6 col-sm-6 col-md-4  col-lg-4  col-xl-4 ">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">Casquette Chopper</a></h3>
+                        <div class="price">14,90€
 
-                <div class="card">
-                    <img src="../../public/img/articles/figurines/zoro.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title"  >Figurine Roronoa Zoro – Grandista Manga Dimension– 28 cm
-                        </h6>
-                        <p class="card-text">74,90€</p>
-                        <a href="#" class="btn btn-danger">AJOUTER AU PANIER</a>
+                        </div>
+                        <button type="button" class="btn btn-outline-danger href=">Ajouter au panier</button>
                     </div>
                 </div>
-
             </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="product-grid h-100 bg-white">
+                    <div class="product-image">
+                        <a href="#">
+                            <img class="pic-1" src="../../public/img/articles/vetements/sweat_law.jpg">
+                            <img class="pic-2" src="../../public/img/articles/vetements/sweat_law2.jpg">
+                        </a>
+                        <ul class="social">
+                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
+                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
 
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">Sweat Trafalgar Law - Noir </a></h3>
+                        <div class="price">29,90€
+
+                        </div>
+                        <button type="button" class="btn btn-outline-danger href=">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
     </div>
 <?php
 footer();
