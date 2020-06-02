@@ -23,7 +23,8 @@ $db = connection();
                         </a>
                         <ul class="social">
                             <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
+                            <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
                         </ul>
 
                     </div>
@@ -47,6 +48,7 @@ $db = connection();
                         <ul class="social">
                             <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
                             <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
 
                     </div>
@@ -69,11 +71,12 @@ $db = connection();
                         <ul class="social">
                             <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
                             <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
 
                     </div>
                     <div class="product-content">
-                        <h3 class="title"><a href="#">Figurine Roronoa Zoro – Grandista Manga Dimension– 28 cm</a></h3>
+                        <h3 class="title"><a href="#">Sweat Trafalgar Law - Noir</a></h3>
                         <div class="price">44,90€
 
                         </div>
@@ -97,6 +100,7 @@ $db = connection();
                         <ul class="social">
                             <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
                             <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
 
                     </div>
@@ -120,6 +124,7 @@ $db = connection();
                         <ul class="social">
                             <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
                             <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
 
                     </div>
@@ -142,6 +147,7 @@ $db = connection();
                         <ul class="social">
                             <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
                             <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
 
                     </div>

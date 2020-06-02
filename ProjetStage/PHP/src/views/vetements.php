@@ -76,7 +76,7 @@ $db = connection();
                     </div>
                     <div class="product-content">
                         <h3 class="title"><a href="#">Sweat Trafalgar Law - Noir </a></h3>
-                        <div class="price">29,90€
+                        <div class="price">24,90€
 
                         </div>
                         <button type="button" class="btn btn-outline-danger href=">Ajouter au panier</button>

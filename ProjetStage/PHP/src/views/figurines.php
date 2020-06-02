@@ -10,7 +10,6 @@ session_start();
 head();
 carousel();
 $db = connection();
-
 ?>
 
 <!--Articles-->

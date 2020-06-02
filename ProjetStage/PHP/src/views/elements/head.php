@@ -84,6 +84,9 @@ function head(){
             <li class="nav-item">
                 <a class="nav-link" href="../../../src/views/goodies.php" id="goodies">GOODIES</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="../../../src/views/admin.php" id="admin">ADMIN</a>
+            </li>
         </ul>
     </div>
 </nav>

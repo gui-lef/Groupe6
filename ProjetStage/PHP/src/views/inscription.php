@@ -7,7 +7,7 @@ require_once '../models/connect.php';
 head();
 $db = connection();
                                                         //inscription//
-    if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['adresse']) && isset($_POST['tel']) && isset($_POST['adresseComplementaire']) && isset($_POST['codePostal']) && isset($_POST['ville'])
+    if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['adresse']) && isset($_POST['tel']) && isset($_POST['adresseComplementaire']) && isset($_POST['codePostal'])
         && isset($_POST['email']) && isset($_POST['mdp']) && isset($_POST['ville']) && isset($_POST['pays']) && isset($_POST['confMdp'])) {
         $nom = htmlspecialchars(trim($_POST['nom']));
         $prenom = htmlspecialchars(trim($_POST['prenom']));
