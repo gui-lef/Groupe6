@@ -135,6 +135,20 @@ position: absolute;
 {
     width: 45%;
 }
+.vh-10
+{
+   height: 10vh;
+}
+
+.vh-20{
+    height: 20vh;
+}
+.vh-70{
+    height: 70vh;
+}
+
+
+
 /** articles **/
 h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;color: #333F50}
 

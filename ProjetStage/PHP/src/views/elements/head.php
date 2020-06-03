@@ -14,9 +14,9 @@ function head(){
 
     <title>Les trésors de One Piece</title>
 </head>
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-bluedark p-2">
+<body class="">
+<div class="d-flex flex-column justify-content-between ">
+<nav class="navbar navbar-expand-lg navbar-dark bg-bluedark p-2 vh-10">
     <div class="d-flex align-item-center navigation">
         <div class="titrebanniere "><a class="text-light" href="../../../index.php "> LES TRESORS DE ONE PIECE</a></div>
         <div class="d-flex" id="image">

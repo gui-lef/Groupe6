@@ -25,8 +25,9 @@ $db = connection();
                             <img class="pic-2" src="../../public/img/articles/vetements/sweat_law2.jpg">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="voirplusarticle.php" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
+                            <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
                         </ul>
 
                     </div>
@@ -47,8 +48,9 @@ $db = connection();
                             <img class="pic-2" src="../../public/img/articles/vetements/casquette_chopper2.jpg">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="voirplusarticle.php" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
+                            <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
                         </ul>
 
                     </div>
@@ -69,8 +71,9 @@ $db = connection();
                             <img class="pic-2" src="../../public/img/articles/vetements/sweat_law2.jpg">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="voirplusarticle.php" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
+                            <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
                         </ul>
 
                     </div>

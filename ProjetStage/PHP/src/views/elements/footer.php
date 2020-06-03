@@ -4,7 +4,7 @@ function footer()
     </div>
 
     <!--footer -->
-    <footer class="mt-3">
+    <footer class="mt-3 vh-20">
         <div class="card-body bg-bluedark text-light " >
             <div class="container-fluid ">
                 <div class="row">
@@ -53,7 +53,7 @@ function footer()
             </div>
         </div>
 
-
+        </div>
 
 
     </footer>

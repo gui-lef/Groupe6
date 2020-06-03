@@ -22,7 +22,7 @@ $db = connection();
                             <img class="pic-2" src="public/img/articles/figurines/zoro1.jpeg">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
+                            <li><a href="src/views/voirplusarticle.php" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
                             <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
                             <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
                         </ul>
@@ -46,9 +46,9 @@ $db = connection();
                             <img class="pic-2" src="public/img/articles/livres/tome96.png">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
-                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="src/views/voirplusarticle.php" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
+                            <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
                         </ul>
 
                     </div>
@@ -69,9 +69,9 @@ $db = connection();
                             <img class="pic-2" src="public/img/articles/vetements/sweat_law2.jpg">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
-                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="src/views/voirplusarticle.php" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
+                            <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
                         </ul>
 
                     </div>
@@ -98,9 +98,9 @@ $db = connection();
                             <img class="pic-2" src="public/img/articles/dvd/stampede2.jpg">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
-                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="src/views/voirplusarticle.php" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
+                            <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
                         </ul>
 
                     </div>
@@ -122,9 +122,9 @@ $db = connection();
                             <img class="pic-2" src="public/img/articles/goodies/pc_chopper2.jpg">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
-                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="src/views/voirplusarticle.php" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
+                            <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
                         </ul>
 
                     </div>
@@ -145,9 +145,9 @@ $db = connection();
                             <img class="pic-2" src="public/img/articles/figurines/luffy2.jpg">
                         </a>
                         <ul class="social">
-                            <li><a href="" data-tip="Voir +"><i class="fa fa-search"></i></a></li>
-                            <li><a href="" data-tip="Ajouter au panier"><i class="fa fa-shopping-cart"></i></a></li>
-                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="src/views/voirplusarticle.php" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
+                            <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
                         </ul>
 
                     </div>
