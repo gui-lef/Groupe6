@@ -15,7 +15,7 @@ $db = connection();
         <h3 class="h3">Articles Populaires</h3>
         <div class="row">
             <div class="col-md-4 col-sm-6">
-                <div class="product-grid h-100 bg-white">
+                <div class="product-grid  bg-white">
                     <div class="product-image">
                         <a href="#">
                             <img class="pic-1" src="public/img/articles/figurines/zoro.jpeg">

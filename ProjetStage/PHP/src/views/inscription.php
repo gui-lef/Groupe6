@@ -164,6 +164,16 @@ $db = connection();
                 <div class="card-body" style="border:1px solid #333F50;">
                     <h5 class="card-title">CREEZ VOTRE COMPTE</h5> <hr style="background-color:#333F50;border-width: 1px">
                            <form method="post" action="inscription.php">
+                                                        <!-- boutons provisoires Client/admin pour présentation-->
+
+                               <div class="btn-group btn-group-toggle mb-2 d-flex justify-content-center" data-toggle="buttons">
+                                   <label class="btn btn-outline-secondary active btn-sm">
+                                       <input type="radio" name="options" id="option1" autocomplete="off" required > CLIENT
+                                   </label>
+                                   <label class="btn btn-outline-secondary btn-sm">
+                                       <input type="radio" name="options" id="option2" autocomplete="off" required> ADMIN
+                                   </label>
+                               </div>
                                                                     <!-- Prenom et Nom -->
 
                                 <div class=" mb-2 d-flex justify-content-between ">
