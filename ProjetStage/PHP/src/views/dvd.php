@@ -24,12 +24,12 @@ while ($data=$reqAddDvd->fetchObject()){
 
     <!--Articles-->
     <div class="container mt-4">
-        <div class="row justify-content-center"> <?php foreach ($tableauAddDvd as $dvd) {?>
+        <div class="row justify-content-center"> <?php foreach ($tableauAddDvd as $dvd) { ?>
             <div class="col-md-4 col-sm-6">
                 <div class="product-grid h-75 bg-white">
                     <div class="product-image">
                         <a href="#">
-                            <img class="pic-1 " src="../../public/img/articles/dvd/<?= $dvd->imageDvd ?>">
+                            <img class="pic-1" src="../../public/img/articles/dvd/<?= $dvd->imageDvd ?>">
                             <img class="pic-2" src="../../public/img/articles/dvd/<?= $dvd->image2Dvd ?>">
                         </a>
                         <ul class="social">
