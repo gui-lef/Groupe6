@@ -168,10 +168,10 @@ $db = connection();
 
                                <div class="btn-group btn-group-toggle mb-2 d-flex justify-content-center" data-toggle="buttons">
                                    <label class="btn btn-outline-secondary active btn-sm">
-                                       <input type="radio" name="options" id="option1" autocomplete="off" required > CLIENT
+                                       <input type="radio" name="roleUti" id="option1" autocomplete="off" required > CLIENT
                                    </label>
                                    <label class="btn btn-outline-secondary btn-sm">
-                                       <input type="radio" name="options" id="option2" autocomplete="off" required> ADMIN
+                                       <input type="radio" name="roleUti" id="option2" autocomplete="off" required> ADMIN
                                    </label>
                                </div>
                                                                     <!-- Prenom et Nom -->

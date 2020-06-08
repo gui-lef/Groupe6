@@ -30,13 +30,14 @@ $tableauAddFig = array();
                     <div class="product-image">
                             <img class="pic-1" src="../../public/img/articles/figurines/<?= $fig->imageFigurine ?>">
                             <img class="pic-2" src="../../public/img/articles/figurines/<?= $fig->image2Figurine ?>">
-
-                        <ul class="social">
-                            <li><a  data-toggle="modal" data-target="#voirplus" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
-                            <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
-                            <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
-                        </ul>
-
+                            <form method="get" action="figurines.php">
+                                <ul class="social">
+                                    <li><a  data-toggle="modal" data-target="#voirplus" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
+                                    <input type="number" id="idArt" class="d-none" value="<?= $fig->idFigurine ?>">
+                                    <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
+                                    <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
+                                </ul>
+                            </form>
                     </div>
 
                     <div class="product-content">
@@ -60,7 +61,7 @@ $tableauAddFig = array();
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="card h-100">
+                                <div class="card h-100 ">
                                     <img src="../../public/img/articles/figurines/<?= $fig->imageFigurine ?>" class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-body text-center">
@@ -68,7 +69,7 @@ $tableauAddFig = array();
                                     </h6>
                                     <p class="card-text"><?= $fig->prixFigurine ?> €</p>
                                 </div>
-                                <div class="col-md-4 col-sm-12 ">
+                                <div class="col-md-4 col-sm-4 float-right ">
                                     <label for="qte">Quantité</label>
                                     <input type="number" name="qte" value="1" min="1" max="10" step="1"/>
                                 </div>

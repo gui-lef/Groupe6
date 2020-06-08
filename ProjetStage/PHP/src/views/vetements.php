@@ -27,10 +27,11 @@ while ($data=$reqAddVet->fetchObject()){
     <div class="container mt-4">
         <div class="row justify-content-center"> <?php foreach ($tableauAddVet as $vet) {?>
             <div class="col-md-4 col-sm-6">
-                <div class="product-grid h-75 bg-white">
+                <div class="product-grid  bg-white">
                     <div class="product-image">
                         <img class="pic-1" src="../../public/img/articles/vetements/<?= $vet->imageVetement ?>">
                         <img class="pic-2" src="../../public/img/articles/vetements/<?= $vet->image2Vetement ?>">
+
 
                         <ul class="social">
                             <li><a data-toggle="modal" data-target="#voirplus" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
@@ -68,22 +69,25 @@ while ($data=$reqAddVet->fetchObject()){
                                     </h6>
                                     <p class="card-text"><?= $vet->prixVetement ?> €</p>
                                 </div>
-                                <div class="col-md-4 col-sm-12 d-flex justify-content-center">
-                                    <select class="form-control" name="select">
-                                        <option value="" selected="">Taille</option>
-                                        <option value="">S</option>
-                                        <option value="">M</option>
-                                        <option value="">L</option>
-                                        <option value="">XL</option>
-                                        <option value="">XXL</option>
-                                    </select>
-
-                                <div class="col-md-4 col-sm-12 ">
-                                    <label for="qte">Quantité</label>
-                                    <input type="number" name="qte" value="1" min="1" max="10" step="1"/>
+                                <div class="d-flex flex-column justify-content-between">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6 d-flex">
+                                            <select class="form-control" name="select">
+                                                <option value="" selected="">Taille</option>
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                                <option value="">XXL</option>
+                                            </select>
+                                        </div>
+                                                <div class="class=col-md-6 col-sm-6">
+                                                    <label for="qte">Quantité</label>
+                                                    <input type="number" name="qte" value="1" min="1" max="10" step="1"/>
+                                                </div>
+                                            </div>
+                                        </div>
                                 </div>
-                                </div>
-                            </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Retour</button>
                                 <button type="button" class="btn btn-outline-danger">Ajouter au panier</button>
