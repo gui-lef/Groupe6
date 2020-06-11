@@ -250,35 +250,31 @@ $db = connection();
             </div>
         </div>
     </div>
+    <!-- Connexion-->
+    <div class="col-xs-6 col-sm-6 col-md-4  col-lg-4  col-xl-4 ">
+        <div class="card">
+            <div class="card-body" style="border:1px solid #333F50;">
+                <h5 class="card-title">DEJA INSCRIT ?</h5><hr style="background-color:#333F50;border-width: 1px">
+                <form method="post" action="inscription.php">
+                    <div class="form-group">
+                        <br/>
+                        <label for="emailConnex">Adresse email </label>
+                        <input type="email" class="form-control " id="email" name="emailConnex" aria-describedby="emailHelp" placeholder="">
+                    </div>
 
-    <div ><h4 class="d-flex justify-content-center mt-3">IDENTIFIEZ-VOUS</h4> <hr style="width:80%;background-color:#333F50;border-width: 1px">
-    </div>
-        <div class="d-flex justify-content-center">
-                                                                    <!-- Connexion-->
-            <div class="col-xs-6 col-sm-6 col-md-4  col-lg-4  col-xl-4 ">
-                <div class="card">
-                    <div class="card-body" style="border:1px solid #333F50;">
-                        <h5 class="card-title">CONNEXION</h5><hr style="background-color:#333F50;border-width: 1px">
-                            <form method="post" action="inscription.php">
-                                <div class="form-group">
-                                    <br/>
-                                    <label for="emailConnex">Adresse email </label>
-                                    <input type="email" class="form-control " id="email" name="emailConnex" aria-describedby="emailHelp" placeholder="">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="mdpConnex">Mot de passe</label>
-                                    <input type="password" class="form-control " id="mdp" name="mdpConnex" placeholder="">
-                                    <small id="emailHelp" class="form-text text-muted"><a href="#">Mot de passe oublié ?</a></small>
-                                </div>
-                                <button type="submit" class="btn bg-bluedark text-light">Connexion</button>
-                            </form>
-                        </div>
-                  </div>
-             </div>
+                    <div class="form-group">
+                        <label for="mdpConnex">Mot de passe</label>
+                        <input type="password" class="form-control " id="mdp" name="mdpConnex" placeholder="">
+                        <small id="emailHelp" class="form-text text-muted"><a href="#">Mot de passe oublié ?</a></small>
+                    </div>
+                    <button type="submit" class="btn bg-bluedark text-light">Connexion</button>
+                </form>
+            </div>
         </div>
+    </div>
     </div>
 
 
 <?php
 footer();
+

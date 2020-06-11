@@ -26,7 +26,7 @@ while ($data=$reqAddDvd->fetchObject()){
     <div class="container mt-4">
         <div class="row justify-content-center"> <?php foreach ($tableauAddDvd as $dvd) { ?>
             <div class="col-md-4 col-sm-6">
-                <div class="product-grid h-75 bg-white">
+                <div class="product-grid h-100 bg-white">
                     <div class="product-image">
                         <a href="#">
                             <img class="pic-1" src="../../public/img/articles/dvd/<?= $dvd->imageDvd ?>">

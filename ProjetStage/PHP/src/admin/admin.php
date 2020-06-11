@@ -4,6 +4,10 @@ require_once '../views/elements/footer.php';
 require_once '../config/config.php';
 require_once '../models/connect.php';
 require_once '../../src/class/Figurine.php';
+require_once '../../src/class/Livre.php';
+require_once '../../src/class/Dvd.php';
+require_once '../../src/class/Vetement.php';
+require_once '../../src/class/Goodie.php';
 
 
 session_start();
@@ -11,16 +15,10 @@ head();
 $db = connection();
 //nomme mes variables
 if (isset($_POST['nomArticle']) && isset($_POST['desArticle']) && isset($_POST['tailleVetement']) && isset($_POST['prixArticle'])
-     && isset($_POST['qteArticle'])){
-    $nomArticle = htmlspecialchars(trim($_POST['nomArticle']));
-    $desArticle = htmlspecialchars(trim($_POST['desArticle']));
-    $prixArticle = htmlspecialchars(trim($_POST['prixArticle']));
-    $imgArticle = $_FILES['img']['name'];
-    $img2Article = $_FILES['img2']['name'];
-    $qteArticle = htmlspecialchars(trim($_POST['qteArticle']));
-    $tailleVetement=htmlspecialchars(trim($_POST['tailleVetement']));
-                                                                        /* Figurine */
-    if ($_POST['typeArt']==='figurine') {
+     && isset($_POST['qteArticle'])) {
+
+    /* Figurine */
+    if ($_POST['typeArt'] === 'figurine') {
 
 //verifie si figurine est déjà présente dans BDD
         $sqlSelectFig = "SELECT idFigurine FROM figurine
@@ -36,11 +34,11 @@ if (isset($_POST['nomArticle']) && isset($_POST['desArticle']) && isset($_POST['
             array_push($tableauFig, $data);
         }
         if (!empty($tableauFig)) {
-            echo'<div class="text-center text-light bg-danger ">Cette figurine existe déjà</div>';
+            echo '<div class="text-center text-light bg-danger ">Cette figurine existe déjà</div>';
 
         } //insert des données de la fig dans la BDD
         else {
-            $figurine=new Figurine($db);
+            $figurine = new Figurine($db);
             $figurine->setNomFigurine($_POST['nomArticle']);
             $figurine->setDescriptionFigurine($_POST['desArticle']);
             $figurine->setPrixFigurine($_POST['prixArticle']);
@@ -49,57 +47,43 @@ if (isset($_POST['nomArticle']) && isset($_POST['desArticle']) && isset($_POST['
             $figurine->setQteFigurine($_POST['qteArticle']);
             $figurine->insert();
 
-            /*$sqlInsertFig = "INSERT INTO figurine (nomFigurine,descriptionFigurine,prixFigurine,imageFigurine,image2Figurine,dateAjoutFigurine,qteFigurine)
-                          VALUES (:fig1,:fig2,:fig3,:fig4,:fig5,NOW(),:fig6)";
-            $reqInsertFig = $db->prepare($sqlInsertFig);
-            $reqInsertFig->bindParam(":fig1", $nomArticle);
-            $reqInsertFig->bindParam(":fig2", $desArticle);
-            $reqInsertFig->bindParam(":fig3", $prixArticle);
-            $reqInsertFig->bindParam(":fig4", $imgArticle);
-            $reqInsertFig->bindParam(":fig5", $img2Article);
-            $reqInsertFig->bindParam(":fig6", $qteArticle);
 
-            $reqInsertFig->execute();*/
-            echo'<div class="text-center text-light bg-success ">La figurine a bien été ajoutée</div>';
-             move_uploaded_file($_FILES['img']['tmp_name'],'../../public/img/articles/figurines/'.basename($_FILES['img']['name']));
-             move_uploaded_file($_FILES['img2']['tmp_name'],'../../public/img/articles/figurines/'.basename($_FILES['img2']['name']));
+            echo '<div class="text-center text-light bg-success ">La figurine a bien été ajoutée</div>';
+            move_uploaded_file($_FILES['img']['tmp_name'], '../../public/img/articles/figurines/' . basename($_FILES['img']['name']));
+            move_uploaded_file($_FILES['img2']['tmp_name'], '../../public/img/articles/figurines/' . basename($_FILES['img2']['name']));
         }
-    }
-
-                                                                                /* Livre */
-    elseif ($_POST['typeArt']==='livre'){
-        $sqlSelectLivre= "SELECT idLivre FROM livre
+    } /* Livre */
+    elseif ($_POST['typeArt'] === 'livre') {
+        $sqlSelectLivre = "SELECT idLivre FROM livre
                             WHERE nomLivre='Liv1'";
-        $reqSelectLivre=$db->prepare($sqlSelectLivre);
-        $reqSelectLivre->bindParam(":liv1",$nomArticle);
+        $reqSelectLivre = $db->prepare($sqlSelectLivre);
+        $reqSelectLivre->bindParam(":liv1", $nomArticle);
         $reqSelectLivre->execute();
 
-        $tableauLivre=array();
-        while ($data=$reqSelectLivre->fetchObject()){
-            array_push($tableauLivre,$data);
+        $tableauLivre = array();
+        while ($data = $reqSelectLivre->fetchObject()) {
+            array_push($tableauLivre, $data);
         }
-        if (!empty($tableauLivre)){
+        if (!empty($tableauLivre)) {
             echo '<div class="text-center text-light bg-danger">Ce livre existe déjà</div>';
-        }
-        else{
-            $sqlInsertLivre ="INSERT INTO livre (nomLivre,descriptionLivre,prixLivre,imageLivre,image2Livre,dateAjoutLivre,qteLivre)
-                              VALUES (:liv1,:liv2,:liv3,:liv4,:liv5,NOW(),:liv6)";
-            $reqInsertLivre =$db->prepare($sqlInsertLivre);
-            $reqInsertLivre->bindParam(":liv1",$nomArticle);
-            $reqInsertLivre->bindParam(":liv2",$desArticle);
-            $reqInsertLivre->bindParam(":liv3",$prixArticle);
-            $reqInsertLivre->bindParam(":liv4",$imgArticle);
-            $reqInsertLivre->bindParam(":liv5",$img2Article);
-            $reqInsertLivre->bindParam(":liv6",$qteArticle);
-            $reqInsertLivre->execute();
-            echo '<div class="text-light text-center bg-success">Le livre a bien été ajouté</div>';
-            move_uploaded_file($_FILES['img']['tmp_name'],'../../public/img/articles/livres/'.basename($_FILES['img']['name']));
-            move_uploaded_file($_FILES['img2']['tmp_name'],'../../public/img/articles/livres/'.basename($_FILES['img2']['name']));
-        }
-    }
+        } else {
+            $livre = new Livre($db);
+            $livre->setNomLivre($_POST['nomArticle']);
+            $livre->setDescriptionLivre($_POST['desArticle']);
+            $livre->setPrixLivre($_POST['prixArticle']);
+            $livre->setImageLivre($_FILES['img']['name']);
+            $livre->setImage2Livre($_FILES['img2']['name']);
+            $livre->setQteLivre($_POST['qteArticle']);
 
-                                                                            /* DVD */
-    elseif ($_POST['typeArt']==='dvd'){
+            $livre->insert();
+        }
+
+        echo '<div class="text-light text-center bg-success">Le livre a bien été ajouté</div>';
+        move_uploaded_file($_FILES['img']['tmp_name'], '../../public/img/articles/livres/' . basename($_FILES['img']['name']));
+        move_uploaded_file($_FILES['img2']['tmp_name'], '../../public/img/articles/livres/' . basename($_FILES['img2']['name']));
+
+    } /* DVD */
+    elseif ($_POST['typeArt'] === 'dvd') {
 
         //verifie si dvd est déjà présent dans BDD
         $sqlSelectDvd = "SELECT idDvd FROM dvdbluray
@@ -115,93 +99,83 @@ if (isset($_POST['nomArticle']) && isset($_POST['desArticle']) && isset($_POST['
             array_push($tableauDvd, $data);
         }
         if (!empty($tableauDvd)) {
-            echo'<div class="text-center text-light bg-danger ">Ce DVD existe déjà</div>';
+            echo '<div class="text-center text-light bg-danger ">Ce DVD existe déjà</div>';
         } //insert des données du dvd dans la BDD
         else {
-            $sqlInsertDvd = "INSERT INTO dvdbluray (nomDvd,descriptionDvd,prixDvd,imageDvd,image2Dvd,dateAjoutDvd,qteDvd) 
-                          VALUES (:dvd1,:dvd2,:dvd3,:dvd4,:dvd5,NOW(),:dvd6)";
-            $reqInsertDvd = $db->prepare($sqlInsertDvd);
-            $reqInsertDvd->bindParam(":dvd1", $nomArticle);
-            $reqInsertDvd->bindParam(":dvd2", $desArticle);
-            $reqInsertDvd->bindParam(":dvd3", $prixArticle);
-            $reqInsertDvd->bindParam(":dvd4", $imgArticle);
-            $reqInsertDvd->bindParam(":dvd5", $img2Article);
-            $reqInsertDvd->bindParam(":dvd6", $qteArticle);
+            $dvd = new Dvd($db);
+            $dvd->setNomDvd($_POST['nomArticle']);
+            $dvd->setDescriptionDvd($_POST['desArticle']);
+            $dvd->setPrixDvd($_POST['prixArticle']);
+            $dvd->setImageDvd($_FILES['img']['name']);
+            $dvd->setImage2Dvd($_FILES['img2']['name']);
+            $dvd->setQteDvd($_POST['qteArticle']);
+            $dvd->insert();
 
-            $reqInsertDvd->execute();
-            echo'<div class="text-center text-light bg-success ">Le Dvd a bien été ajouté</div>';
-            move_uploaded_file($_FILES['img']['tmp_name'],'../../public/img/articles/dvd/'.basename($_FILES['img']['name']));
-            move_uploaded_file($_FILES['img2']['tmp_name'],'../../public/img/articles/dvd/'.basename($_FILES['img2']['name']));
+            echo '<div class="text-center text-light bg-success ">Le Dvd a bien été ajouté</div>';
+            move_uploaded_file($_FILES['img']['tmp_name'], '../../public/img/articles/dvd/' . basename($_FILES['img']['name']));
+            move_uploaded_file($_FILES['img2']['tmp_name'], '../../public/img/articles/dvd/' . basename($_FILES['img2']['name']));
         }
-    }
-
-                                                                                        /*Vetement*/
-    elseif ($_POST['typeArt']==='vetement'){
-        $sqlSelectVetement="SELECT idVetement FROM vetement
+    } /*Vetement*/
+    elseif ($_POST['typeArt'] === 'vetement') {
+        $sqlSelectVetement = "SELECT idVetement FROM vetement
                             WHERE nomVetement=:vet1";
-        $reqSelectVetement=$db->prepare($sqlSelectVetement);
-        $reqSelectVetement->bindParam(":vet1",$nomArticle);
+        $reqSelectVetement = $db->prepare($sqlSelectVetement);
+        $reqSelectVetement->bindParam(":vet1", $nomArticle);
         $reqSelectVetement->execute();
 
-        $tableauVetement=array();
-        while ($data=$reqSelectVetement->fetchobject()){
-            array_push($tableauVetement,$data);
+        $tableauVetement = array();
+        while ($data = $reqSelectVetement->fetchobject()) {
+            array_push($tableauVetement, $data);
         }
-        if (!empty($tableauVetement)){
-            echo'<div class="text-light text-center bg-danger" >Ce vétement existe déjà</div>';
-        }
-        else{
-            $sqlInsertVetement = "INSERT INTO vetement (nomVetement,descriptionVetement,prixVetement,tailleVetement,
-                                        imageVetement,image2Vetement,dateAjoutVetement,qteVetement)
-                                        VALUES (:vet1,:vet2,:vet3,:vet4,:vet5,:vet6,NOW(),:vet7)";
-            $reqInsertVetement=$db->prepare($sqlInsertVetement);
-            $reqInsertVetement->bindParam(":vet1",$nomArticle);
-            $reqInsertVetement->bindParam(":vet2",$desArticle);
-            $reqInsertVetement->bindParam(":vet3",$prixArticle);
-            $reqInsertVetement->bindParam(":vet4",$tailleVetement);
-            $reqInsertVetement->bindParam(":vet5",$imgArticle);
-            $reqInsertVetement->bindParam(":vet6",$img2Article);
-            $reqInsertVetement->bindParam(":vet7",$qteArticle);
+        if (!empty($tableauVetement)) {
+            echo '<div class="text-light text-center bg-danger" >Ce vétement existe déjà</div>';
+        } else {
+            $vetement=new Vetement($db);
+            $vetement->setNomVetement($_POST['nomArticle']);
+            $vetement->setDescriptionVetement($_POST['desArticle']);
+            $vetement->setPrixVetement($_POST['prixArticle']);
+            $vetement->setTailleVetement($_POST['tailleVetement']);
+            $vetement->setImageVetement($_FILES['img']['name']);
+            $vetement->setImage2Vetement($_FILES['img2']['name']);
+            $vetement->setQteVetement($_POST['qteArticle']);
+            $vetement->insert();
+            }
 
-            $reqInsertVetement->execute();
             echo '<div class="text-light text-center bg-success">Le vétement a bien été ajouté</div>';
-            move_uploaded_file($_FILES['img']['tmp_name'],'../../public/img/articles/vetements/'.basename($_FILES['img']['name']));
-            move_uploaded_file($_FILES['img2']['tmp_name'],'../../public/img/articles/vetements/'.basename($_FILES['img2']['name']));
+            move_uploaded_file($_FILES['img']['tmp_name'], '../../public/img/articles/vetements/' . basename($_FILES['img']['name']));
+            move_uploaded_file($_FILES['img2']['tmp_name'], '../../public/img/articles/vetements/' . basename($_FILES['img2']['name']));
         }
-    }
-                                                                                            /*Goodies*/
-        elseif ($_POST['typeArt']==='goodie'){
-        $sqlSelectGoodie ="SELECT idGoodie From Goodie
+     /*Goodies*/
+    elseif ($_POST['typeArt'] === 'goodie') {
+        $sqlSelectGoodie = "SELECT idGoodie From Goodie
                             WHERE nomGoodie=:goo1";
-        $reqSelectGoodie=$db->prepare($sqlSelectGoodie);
-        $reqSelectGoodie->bindParam(':goo1',$nomArticle);
+        $reqSelectGoodie = $db->prepare($sqlSelectGoodie);
+        $reqSelectGoodie->bindParam(':goo1', $nomArticle);
         $reqSelectGoodie->execute();
 
-        $tableauGoodie=array();
-        while ($data=$reqSelectGoodie->fetchObject()){
-            array_push($tableauGoodie,$data);
-            }
-        if(!empty($tableauGoodie)){
+        $tableauGoodie = array();
+        while ($data = $reqSelectGoodie->fetchObject()) {
+            array_push($tableauGoodie, $data);
+        }
+        if (!empty($tableauGoodie)) {
             echo '<div class="text-light text-center bg-danger">Ce goodie exite déjà</div>';
-        }
-        else{
-            $sqlInsertGoodie = "INSERT INTO goodie (nomGoodie,descriptionGoodie,PrixGoodie,imageGoodie,image2Goodie,dateAjoutGoodie,qteGoodie)
-                                VALUES (:goo1,:goo2,:goo3,:goo4,:goo5,NOW(),:goo6)";
-            $reqInsertGoodie =$db->prepare($sqlInsertGoodie);
-            $reqInsertGoodie->bindParam(":goo1",$nomArticle);
-            $reqInsertGoodie->bindParam(":goo2",$desArticle);
-            $reqInsertGoodie->bindParam(":goo3",$prixArticle);
-            $reqInsertGoodie->bindParam(":goo4",$imgArticle);
-            $reqInsertGoodie->bindParam(":goo5",$img2Article);
-            $reqInsertGoodie->bindParam(":goo6",$qteArticle);
-
-            $reqInsertGoodie->execute();
-            echo '<div class="text-light text-center bg-success">Le goodie a bien été ajouté</div>';
-            move_uploaded_file($_FILES['img']['tmp_name'],'../../public/img/articles/goodies/'.basename($_FILES['img']['name']));
-            move_uploaded_file($_FILES['img2']['tmp_name'],'../../public/img/articles/goodies/'.basename($_FILES['img2']['name']));
+        } else {
+            $goodie = new Goodie($db);
+            $goodie->setNomGoodie($_POST['nomArticle']);
+            $goodie->setDescriptionGoodie($_POST['desArticle']);
+            $goodie->setPrixGoodie($_POST['prixArticle']);
+            $goodie->setImageGoodie($_FILES['img']['name']);
+            $goodie->setImage2Goodie($_FILES['img2']['name']);
+            $goodie->setQteGoodie($_POST['qteArticle']);
+            $goodie->insert();
         }
 
-        }
+        echo '<div class="text-light text-center bg-success">Le goodie a bien été ajouté</div>';
+        move_uploaded_file($_FILES['img']['tmp_name'], '../../public/img/articles/goodies/' . basename($_FILES['img']['name']));
+        move_uploaded_file($_FILES['img2']['tmp_name'], '../../public/img/articles/goodies/' . basename($_FILES['img2']['name']));
+
+
+    }
 
 }
 
