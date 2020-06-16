@@ -67,12 +67,12 @@ $tableauAddFig = array();
                         </div>
                         <div class="modal-body">
                             <div class="card h-100 ">
-                                <img src="../../public/img/articles/figurines/" class="card-img-top" alt="...">
+                                <img src="../../public/img/articles/figurines/" class="card-img-top modal-pic" alt="...">
                             </div>
                             <div class="card-body text-center">
-                                <h6 class="card-title"  >
+                                <h6 class="card-title card-description"  >
                                 </h6>
-                                <p class="card-text"> €</p>
+                                <p class="card-text card-prix"> €</p>
                             </div>
                             <div class="col-md-4 col-sm-4 float-right ">
                                 <label for="qte">Quantité</label>

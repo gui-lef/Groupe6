@@ -16,9 +16,12 @@ $('.product-image').click(
             data : {
                 'id':id
             },
-            success : function(code_html){ // success est toujours en place, bien sûr !
-
-                $(".modal-title").text(code_html)
+            success : function(fig){ // success est toujours en place, bien sûr !
+            console.table(fig);
+            var fig=JSON.parse(fig)
+               $(".modal-title").text(fig.nomFigurine);
+                $(".card-prix").text(fig.prixFigurine);
+                $(".modal-pic").attr('src','../../public/img/articles/figurines/'+fig.imageFigurine);
             },
 
         });
