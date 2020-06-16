@@ -3,11 +3,7 @@ require_once '../views/elements/head.php';
 require_once '../views/elements/footer.php';
 require_once '../config/config.php';
 require_once '../models/connect.php';
-require_once '../../src/class/Figurine.php';
-require_once '../../src/class/Livre.php';
-require_once '../../src/class/Dvd.php';
-require_once '../../src/class/Vetement.php';
-require_once '../../src/class/Goodie.php';
+
 
 
 session_start();
@@ -21,7 +17,7 @@ if (isset($_POST['nomArticle']) && isset($_POST['desArticle']) && isset($_POST['
     if ($_POST['typeArt'] === 'figurine') {
 
 //verifie si figurine est déjà présente dans BDD
-        $sqlSelectFig = "SELECT idFigurine FROM figurine
+        $sqlSelectFig = "SELECT id FROM figurine
                   WHERE nomFigurine=:fig1";
         $reqSelectFig = $db->prepare($sqlSelectFig);
         $reqSelectFig->bindParam(":fig1", $nomArticle);

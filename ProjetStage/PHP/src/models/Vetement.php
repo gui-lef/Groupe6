@@ -1,7 +1,9 @@
 <?php
 
+namespace App\Models;
+use Core\Models;
 
-class Vetement
+class Vetement extends Models
 {
     private $nomVetement;
     private $descriptionVetement;

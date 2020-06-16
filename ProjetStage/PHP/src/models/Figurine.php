@@ -1,19 +1,21 @@
 <?php
 
+namespace App\Models;
 
+use Core\Model;
 
-
-class Figurine
+class Figurine extends Model
 {
-private $nomFigurine;
-private $descriptionFigurine;
-private $prixFigurine;
-private $imageFigurine;
-private $image2Figurine;
-private $dateAjoutFigurine;
-private $qteFigurine;
+    private $nomFigurine;
+    private $descriptionFigurine;
+    private $prixFigurine;
+    private $imageFigurine;
+    private $image2Figurine;
+    private $dateAjoutFigurine;
+    private $qteFigurine;
 
-private $db;
+    private $db;
+
     /**
      * @return mixed
      */
@@ -100,7 +102,7 @@ private $db;
      */
     public function setImage2Figurine($image2Figurine)
     {
-        $this->image2Figurine =htmlspecialchars(trim ($image2Figurine));
+        $this->image2Figurine = htmlspecialchars(trim($image2Figurine));
         return $this;
     }
 
@@ -140,10 +142,13 @@ private $db;
         return $this;
     }
 
-    public function __construct($db){
-        $this->db=$db;
+    public function __construct($db)
+    {
+        $this->db = $db;
     }
-    public function insert(){
+
+    public function insert()
+    {
         $sqlInsertFig = "INSERT INTO figurine (nomFigurine,descriptionFigurine,prixFigurine,imageFigurine,image2Figurine,dateAjoutFigurine,qteFigurine) 
                           VALUES (:fig1,:fig2,:fig3,:fig4,:fig5,NOW(),:fig6)";
         $reqInsertFig = $this->db->prepare($sqlInsertFig);
@@ -155,6 +160,18 @@ private $db;
         $reqInsertFig->bindParam(":fig6", $this->qteFigurine);
 
         $reqInsertFig->execute();
+
+    }
+
+    public function select()
+    {
+        $sqlSelectEmailCo = "SELECT * FROM figurine WHERE id =:id";
+        $reqSelectEmailCo = $this->db->prepare($sqlSelectEmailCo);
+        $reqSelectEmailCo->bindParam(":id", $this->id);
+
+        $reqSelectEmailCo->execute();
+        return $reqSelectEmailCo->fetch();
+
 
     }
 }

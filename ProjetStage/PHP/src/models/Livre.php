@@ -1,7 +1,9 @@
 <?php
 
 
-class Livre
+namespace App\Models;
+use Core\Models;
+class Livre extends Models
 {
     private $nomLivre;
     private $descriptionLivre;

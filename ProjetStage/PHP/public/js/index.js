@@ -35,4 +35,4 @@ function verifInscription(){
        return true;
     }
 }
-document.getElementById("btnInscription").addEventListener("click", verifInscription , false);
+//document.getElementById("btnInscription").addEventListener("click", verifInscription , false);

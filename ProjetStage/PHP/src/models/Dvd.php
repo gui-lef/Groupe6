@@ -1,7 +1,9 @@
 <?php
 
+ namespace App\Models;
+ use Core\Models;
 
-class Dvd
+class Dvd extends Models
 {
     private $nomDvd;
     private $descriptionDvd;

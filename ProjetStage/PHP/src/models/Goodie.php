@@ -1,7 +1,11 @@
 <?php
 
+namespace App\Models;
+use Core\Models;
 
-class Goodie
+class Goodie extends Models
+
+
 {
     private $nomGoodie;
     private $descriptionGoodie;

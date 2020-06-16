@@ -3,7 +3,7 @@ require_once 'elements/head.php';
 require_once 'elements/footer.php';
 require_once '../config/config.php';
 require_once '../models/connect.php';
-require_once '../class/Utilisateur.php';
+require_once '../models/Utilisateur.php';
 
 head();
 $db = connection();
@@ -83,24 +83,7 @@ if (isset($_POST['nom']) ) {
         //}
 
 
-        /*$sqlIdUtilisateur = "SELECT idTypeUtilisateur FROM typeutilisateur WHERE nomTypeUtilisateur='Client'";
-        $reqIdUtilisateur = $db->prepare($sqlIdUtilisateur);
-        $reqIdUtilisateur->execute();
 
-        $tableauId = array();
-        while ($data = $reqIdUtilisateur->fetchObject()) {
-            array_push($tableauId, $data);
-        }
-        if (!empty($tableauId)) {
-            $idTypeU = intval($tableauId[0]->idTypeUtilisateur);
-        } else {
-            $sqlClient = "INSERT INTO typeutilisateur (nomTypeUtilisateur) VALUES ('Client')";
-            $reqClient = $db->prepare($sqlClient);
-            $reqClient->execute();
-            $idTypeU = intval($db->lastInsertId());
-        }
-
-*/
         $sqlUtilisateur = "INSERT INTO utilisateur (nomUti,prenomUti,emailUti,mdpUti,telUti,adresse_idAdresse) 
                                VALUES (:uti1,:uti2,:uti3,:uti4,:uti5,:uti6)";
         $reqUtilisateur = $db->prepare($sqlUtilisateur);
