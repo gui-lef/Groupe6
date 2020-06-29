@@ -2,8 +2,8 @@
 
 
 namespace App\Models;
-use Core\Models;
-class Livre extends Models
+use Core\Model;
+class Livre extends Model
 {
     private $nomLivre;
     private $descriptionLivre;
@@ -160,6 +160,18 @@ class Livre extends Models
     $reqInsertLivre->bindParam(":liv6", $this->qteLivre);
 
     $reqInsertLivre->execute();
+    }
+
+    public function select()
+    {
+        $sqlSelectEmailCo = "SELECT * FROM livre WHERE id =:id";
+        $reqSelectEmailCo = $this->db->prepare($sqlSelectEmailCo);
+        $reqSelectEmailCo->bindParam(":id", $this->id);
+
+        $reqSelectEmailCo->execute();
+        return $reqSelectEmailCo->fetch();
+
+
     }
 
 }

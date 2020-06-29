@@ -32,7 +32,7 @@ $tableauAddFig = array();
                             <img class="pic-2" src="../../public/img/articles/figurines/<?= $fig->image2Figurine ?>">
                             <form method="get" action="figurines.php">
                                 <ul class="social">
-                                    <li><a class="voirplus" data-toggle="modal" data-id="<?= $fig->id ?> " data-target="#voirplus" data-tip="Voir +"><i class="fa fa-eye voirplus"></i></a></li>
+                                    <li><a class="voirplus" data-toggle="modal" data-type="figurines" data-id="<?= $fig->id ?> " data-target="#voirplus" data-tip="Voir +"><i class="fa fa-eye voirplus"></i></a></li>
                                     <input type="number" id="idArt" class="d-none" value="<?= $fig->id ?>">
                                     <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
                                     <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>

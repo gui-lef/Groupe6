@@ -25,25 +25,30 @@ while ($data = $reqAddLivre->fetchObject()) {
 
     <!--Articles-->
     <div class="container mt-4">
-    <div class="row justify-content-center"> <?php foreach ($tableauAddLivre
-
-    as $liv){ ?>
+    <div class="row justify-content-center"> <?php foreach ($tableauAddLivre as $liv){ ?>
     <div class="col-md-4 col-sm-6">
     <div class="product-grid h-75 bg-white">
     <div class="product-image">
-        <a href="#">
             <img class="pic-1 " src="../../public/img/articles/livres/<?= $liv->imageLivre ?>">
             <img class="pic-2" src="../../public/img/articles/livres/<?= $liv->image2Livre ?>">
             <form method="get" action="livres.php">
                 <ul class="social">
-                    <li><a class="voirplus" data-toggle="modal" data-id="<?= $liv->id ?> " data-target="#voirplus"
-                           data-tip="Voir +"><i class="fa fa-eye voirplus"></i></a></li>
+                    <li><a class="voirplus" data-toggle="modal" data-type="livres" data-id="<?= $liv->id ?> " data-target="#voirplus" data-tip="Voir +"><i class="fa fa-eye voirplus"></i></a></li>
                     <input type="number" id="idArt" class="d-none" value="<?= $liv->id ?>">
                     <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
                     <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
                 </ul>
             </form>
 
+    </div>
+        <div class="product-content">
+            <h3 class="title"><a href="#"><?= $liv->nomLivre ?></a></h3>
+            <div class="price"><?= $liv->prixLivre ?> €
+
+            </div>
+            <button type="button" class="btn btn-outline-danger mb-1" > Ajouter au panier</button>
+        </div>
+    </div>
     </div>
 
     <!-- voir + -->
@@ -81,6 +86,7 @@ while ($data = $reqAddLivre->fetchObject()) {
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 <?php

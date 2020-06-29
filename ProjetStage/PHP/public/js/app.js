@@ -1,30 +1,29 @@
 
 $(function () {
 
-/*
-$('.product-image').click(
-    function () {
-    $(this).hide('slow')
-    }
-);*/
     $(".voirplus").click(function(){
         var id=$(this).attr('data-id');
+        var type=$(this).attr('data-type');
 
         $.ajax({
-            url : 'ajax/figurine.php',
+            url : 'ajax/ajax.php',
             type : 'POST',
             data : {
-                'id':id
+                'id':id,
+                'type':type,
             },
-            success : function(fig){ // success est toujours en place, bien sûr !
-            console.table(fig);
-            var fig=JSON.parse(fig)
-               $(".modal-title").text(fig.nomFigurine);
-                $(".card-prix").text(fig.prixFigurine);
-                $(".modal-pic").attr('src','../../public/img/articles/figurines/'+fig.imageFigurine);
+            success : function(data){
+
+            console.log(data);
+            var model=JSON.parse(data)
+               $(".modal-title").text(model[1]);
+                $(".card-description").text(model[2]);
+                $(".card-prix").text(model[3]+' €');
+                $(".modal-pic").attr('src','../../public/img/articles/'+type+'/'+model[4]);
             },
 
         });
+
 
     });
 

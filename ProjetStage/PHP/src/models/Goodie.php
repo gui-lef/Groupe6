@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Models;
-use Core\Models;
+use Core\Model;
 
-class Goodie extends Models
+class Goodie extends Model
 
 
 {
@@ -161,4 +161,13 @@ class Goodie extends Models
         $reqInsertGoodie->execute();
 
     }
+    public function select()
+    {
+        $sqlSelectEmailCo = "SELECT * FROM goodie WHERE id =:id";
+        $reqSelectEmailCo = $this->db->prepare($sqlSelectEmailCo);
+        $reqSelectEmailCo->bindParam(":id", $this->id);
+
+        $reqSelectEmailCo->execute();
+        return $reqSelectEmailCo->fetch();
+}
 }

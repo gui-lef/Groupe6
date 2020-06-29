@@ -1,9 +1,9 @@
 <?php
 
  namespace App\Models;
- use Core\Models;
+ use Core\Model;
 
-class Dvd extends Models
+class Dvd extends Model
 {
     private $nomDvd;
     private $descriptionDvd;
@@ -175,6 +175,16 @@ class Dvd extends Models
         $reqInsertDvd-> bindParam(":dvd6",$this->qteDvd);
         $reqInsertDvd->execute();
     }
+    public function select()
+    {
+        $sqlSelectEmailCo = "SELECT * FROM dvdbluray WHERE id =:id";
+        $reqSelectEmailCo = $this->db->prepare($sqlSelectEmailCo);
+        $reqSelectEmailCo->bindParam(":id", $this->id);
 
+        $reqSelectEmailCo->execute();
+        return $reqSelectEmailCo->fetch();
+
+
+    }
 
 }

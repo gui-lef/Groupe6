@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Models;
-use Core\Models;
+use Core\Model;
 
-class Vetement extends Models
+class Vetement extends Model
 {
     private $nomVetement;
     private $descriptionVetement;
@@ -172,5 +172,16 @@ class Vetement extends Models
         $reqInsertVetement->bindParam(':vet6',$this->image2Vetement);
         $reqInsertVetement->bindParam(':vet7',$this->qteVetement);
         $reqInsertVetement->execute();
+    }
+    public function select()
+    {
+        $sqlSelectEmailCo = "SELECT * FROM vetement WHERE id =:id";
+        $reqSelectEmailCo = $this->db->prepare($sqlSelectEmailCo);
+        $reqSelectEmailCo->bindParam(":id", $this->id);
+
+        $reqSelectEmailCo->execute();
+        return $reqSelectEmailCo->fetch();
+
+
     }
 }

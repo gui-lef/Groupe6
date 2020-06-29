@@ -4,6 +4,7 @@ require_once 'elements/carousel.php';
 require_once 'elements/footer.php';
 require_once '../config/config.php';
 require_once '../models/connect.php';
+require_once '../../vendor/autoload.php';
 
 
 session_start();
@@ -31,14 +32,15 @@ while ($data=$reqAddVet->fetchObject()){
                     <div class="product-image">
                         <img class="pic-1" src="../../public/img/articles/vetements/<?= $vet->imageVetement ?>">
                         <img class="pic-2" src="../../public/img/articles/vetements/<?= $vet->image2Vetement ?>">
-
+                        <form method="get" action="vetements.php">
 
                         <ul class="social">
-                            <li><a data-toggle="modal" data-target="#voirplus" data-tip="Voir +"><i class="fa fa-eye"></i></a></li>
+                            <li><a class="voirplus" data-toggle="modal" data-type="vetements" data-id="<?= $vet->id ?> " data-target="#voirplus" data-tip="Voir +"><i class="fa fa-eye voirplus"></i></a></li>
+                            <input type="number" id="idArt" class="d-none" value="<?= $vet->id ?>">
                             <li><a href="" data-tip="Modifier l'article"><i class="fa fa-edit"></i></a></li>
                             <li><a href="" data-tip="Supprimer l'article"><i class="fa fa-times-circle"></i></a></li>
                         </ul>
-
+                        </form>
                     </div>
                     <div class="product-content">
                         <h3 class="title"><a href="#"><?= $vet->nomVetement ?> </a></h3>
@@ -62,7 +64,7 @@ while ($data=$reqAddVet->fetchObject()){
                             </div>
                             <div class="modal-body">
                                 <div class="card h-100">
-                                    <img src="../../public/img/articles/figurines/<?= $vet->imageVetement ?>" class="card-img-top" alt="...">
+                                    <img src="../../public/img/articles/vetements/<?= $vet->imageVetement ?>" class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-body text-center">
                                     <h6 class="card-title"  ><?= $vet->descriptionVetement ?>
