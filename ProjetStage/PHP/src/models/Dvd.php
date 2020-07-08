@@ -15,6 +15,11 @@ class Dvd extends Model
 
     private $db;
 
+    public function __construct($db)
+    {
+        $this->db=$db;
+    }
+
     /**
      * @return mixed
      */
@@ -159,10 +164,7 @@ class Dvd extends Model
         return $this;
     }
 
-    public function __construct($db)
-    {
-        $this->db=$db;
-    }
+
     public function insert(){
         $sqlInsertDvd="INSERT INTO dvdbluray (nomDvd,descriptionDvd,prixDvd,imageDvd,image2Dvd,dateAjoutDvd,qteDvd)
                         VALUES (:dvd1,:dvd2,:dvd3,:dvd4,:dvd5,NOW(),:dvd6) ";

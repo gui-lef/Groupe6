@@ -3,8 +3,13 @@ require_once '../views/elements/head.php';
 require_once '../views/elements/footer.php';
 require_once '../config/config.php';
 require_once '../models/connect.php';
-
-
+require_once  '../../vendor/autoload.php';
+        use App\Models\Figurine;
+        use App\Models\Dvd;
+        use App\Models\Goodie;
+        use App\Models\Livre;
+        use App\Models\Vetement;
+        use App\Models\Utilisateur;
 
 session_start();
 head();

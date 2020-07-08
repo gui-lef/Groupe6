@@ -1,5 +1,6 @@
 <?php
-
+namespace App\Models;
+use Core\Model;
 
 class Utilisateur
 {
@@ -12,6 +13,11 @@ class Utilisateur
     private $adresse_idAdresse;
 
     private $db;
+
+    public function __construct($db)
+    {
+        $this->db = $db;
+    }
 
     /**
      * @return mixed
@@ -139,10 +145,7 @@ class Utilisateur
         return $this;
     }
 
-    public function __construct($db)
-    {
-        $this->db = $db;
-    }
+
 
     public function verifEmail()
     {

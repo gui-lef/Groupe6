@@ -17,6 +17,11 @@ class Goodie extends Model
 
     private $db;
 
+    public function __construct($db)
+    {
+        $this->db=$db;
+    }
+
     /**
      * @return mixed
      */
@@ -143,10 +148,7 @@ class Goodie extends Model
         return $this;
     }
 
-    public function __construct($db)
-    {
-        $this->db=$db;
-    }
+
 
     public function insert(){
         $sqlInsertGoodie="INSERT INTO goodie (nomGoodie,descriptionGoodie,prixGoodie,imageGoodie,image2Goodie,dateAjoutGoodie,qteGoodie)

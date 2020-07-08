@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Core\Model;
 
+
 class Figurine extends Model
 {
     private $nomFigurine;
@@ -15,6 +16,11 @@ class Figurine extends Model
     private $qteFigurine;
 
     private $db;
+
+    public function __construct($db)
+    {
+        $this->db = $db;
+    }
 
     /**
      * @return mixed
@@ -142,17 +148,14 @@ class Figurine extends Model
         return $this;
     }
 
-    public function __construct($db)
-    {
-        $this->db = $db;
-    }
+
 
     public function insert()
     {
         $sqlInsertFig = "INSERT INTO figurine (nomFigurine,descriptionFigurine,prixFigurine,imageFigurine,image2Figurine,dateAjoutFigurine,qteFigurine) 
                           VALUES (:fig1,:fig2,:fig3,:fig4,:fig5,NOW(),:fig6)";
         $reqInsertFig = $this->db->prepare($sqlInsertFig);
-        $reqInsertFig->bindParam(":fig1", $this->nomFigurine);
+        $reqInsertFig->bindParam(":fig1", $this->nomFigurine); /*binparam proteger et verifier l'injection */
         $reqInsertFig->bindParam(":fig2", $this->descriptionFigurine);
         $reqInsertFig->bindParam(":fig3", $this->prixFigurine);
         $reqInsertFig->bindParam(":fig4", $this->imageFigurine);
@@ -170,7 +173,8 @@ class Figurine extends Model
         $reqSelectEmailCo->bindParam(":id", $this->id);
 
         $reqSelectEmailCo->execute();
-        return $reqSelectEmailCo->fetch();
+       // return $reqSelectEmailCo->fetchObject(); /* fo envoie system de présentation qui renvoie à la ligne 73 ->id */
+        return $reqSelectEmailCo->fetch(); /* f envoie system de présentation sous frome d'un tableau ['id'] */
 
 
     }

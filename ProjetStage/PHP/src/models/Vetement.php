@@ -15,6 +15,10 @@ class Vetement extends Model
     private $qteVetement;
 
     private $db;
+    public function __construct($db)
+    {
+        $this->db=$db;
+    }
 
     /**
      * @return mixed
@@ -157,9 +161,7 @@ class Vetement extends Model
         $this->qteVetement = htmlspecialchars(trim($qteVetement));
         return $this;
     }
-    public function __construct($db){
-        $this->db=$db;
-    }
+
     public function insert(){
         $sqlInsertVetement="INSERT INTO vetement (nomVetement,descriptionVetement,prixVetement,tailleVetement,imageVetement,image2Vetement,dateAjoutVetement,qteVetement)
                                 VALUES (:vet1,:vet2,:vet3,:vet4,:vet5,:vet6,NOW(),:vet7)";

@@ -15,6 +15,11 @@ class Livre extends Model
 
     private $db;
 
+    public function __construct($db)
+    {
+        $this->db=$db;
+    }
+
 
     /**
      * @return mixed
@@ -142,10 +147,7 @@ class Livre extends Model
         return $this;
     }
 
-    public function __construct($db)
-    {
-        $this->db=$db;
-    }
+
     public function insert(){
 
 
