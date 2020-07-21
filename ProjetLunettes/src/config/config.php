@@ -1,5 +1,5 @@
 <?php
 define('LOCALHOST', 'localhost');
-define('DBNAME', 'projetLunettes');
+define('DBNAME', 'projetlunettes');
 define('DBID', 'root');
 define('DBMDP','');

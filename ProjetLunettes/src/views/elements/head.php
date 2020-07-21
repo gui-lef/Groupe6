@@ -49,10 +49,10 @@ function head(){
 
         <!-- NAVBAR ITEMS -->
         <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
-                <a class="nav-link link text-black display-4" href="women.html">Women</a>
+                <a class="nav-link link text-black display-4" href="../../../src/views/women.php">Women</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link link text-black display-4" href="men.html">Men</a>
+                <a class="nav-link link text-black display-4" href="../../../src/views/men.php">Men</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link link  dropdown-toggle text-black display-4" data-toggle="dropdown-submenu" aria-expanded="false">Explore</a>
@@ -61,8 +61,10 @@ function head(){
                     <a class="dropdown-item text-black display-4" href="#">Belts</a><a class="text-black dropdown-item display-4" href="#" aria-expanded="false">Accessories </a>
                 </div>
             </li>
-            <li class="nav-item"><a class="nav-link link  text-black display-4" href="contact.html" aria-expanded="false">Contacts</a></li>
-            <li class="nav-item"><a class="nav-link link  text-black display-4" href="help.html" aria-expanded="false">Help</a></li></ul>
+            <li class="nav-item"><a class="nav-link link  text-black display-4" href="../../../src/views/contact.php" aria-expanded="false">Contacts</a></li>
+            <li class="nav-item"><a class="nav-link link  text-black display-4" href="../../../src/views/help.php" aria-expanded="false">Help</a></li></ul>
+            <li class="nav-item"><a class="nav-link link  text-black display-4" href="../../../src/views/signIn.php" aria-expanded="false">Account</a></li>
+            <li class="nav-item"><a class="nav-link link  text display-4" href="../../admin/admin.php" aria-expanded="false">Admin</a></li>
         <!-- NAVBAR ITEMS END -->
         <!-- SOCIAL ICON -->
         <div class="menu-social-list">
@@ -93,18 +95,19 @@ function head(){
             <!-- SHOW LOGO -->
             <div class="navbar-brand">
 
-                <span class="navbar-caption-wrap"><a class="navbar-caption  text-black display-6 display-5" href="#">ProductAMP</a></span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption  text-black display-6 display-5" href="../../../index.php">ProductAMP</a></span>
             </div>
             <!-- SHOW LOGO END -->
             <!-- COLLAPSED MENU -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <!-- NAVBAR ITEMS -->
-                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
-                        <a class="nav-link link text-black display-4" href="women.html">Women</a>
+                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="../../../src/views/women.php">Women</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-black display-4" href="men.html">Men</a>
+                        <a class="nav-link link text-black display-4" href="../../../src/views/men.php">Men</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link link  dropdown-toggle text-black display-4" data-toggle="dropdown-submenu" aria-expanded="false">Explore</a>
@@ -113,8 +116,15 @@ function head(){
                             <a class="dropdown-item text-black display-4" href="#">Belts</a><a class="text-black dropdown-item display-4" href="#" aria-expanded="false">Accessories </a>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link link  text-black display-4" href="contact.html" aria-expanded="false">Contacts</a></li>
-                    <li class="nav-item"><a class="nav-link link  text-black display-4" href="help.html" aria-expanded="false">Help</a></li></ul>
+                    <li class="nav-item"><a class="nav-link link  text-black display-4" href="../../../src/views/contact.php" aria-expanded="false">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link link  text-black display-4" href="../../../src/views/help.php" aria-expanded="false">Help</a></li>
+                    <li class="nav-item"><a class="nav-link link  text-black display-4" href="../../../src/views/signIn.php" aria-expanded="false">Account</a></li>
+                    <li class="nav-item"><a class="nav-link link  text display-4" href="../../admin/admin.php" aria-expanded="false">Admin</a></li>
+
+
+
+                </ul>
+
                 <!-- NAVBAR ITEMS END -->
                 <!-- SOCIAL ICON -->
                 <div class="menu-social-list">
