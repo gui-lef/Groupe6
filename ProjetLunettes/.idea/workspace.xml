@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="770f0f05-31c4-4325-80b6-5f430440166b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/admin/admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/createAccount.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/signIn.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCD/sql.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Exercices PHP/exempleMiniChat" beforeDir="false" afterPath="$PROJECT_DIR$/../Exercices PHP/exempleMiniChat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCD/projetsymfony.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/MCD/projetsymfony.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCD/projetsymfony.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/MCD/projetsymfony.mwb.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/elements/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/elements/head.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/men.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/men.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/women.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/women.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/signIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/signIn.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +54,8 @@
       <updated>1594803326956</updated>
       <workItem from="1594803328083" duration="2390000" />
       <workItem from="1594887821162" duration="3497000" />
-      <workItem from="1595316978766" duration="5559000" />
+      <workItem from="1595316978766" duration="6387000" />
+      <workItem from="1595493142377" duration="1967000" />
     </task>
     <servers />
   </component>
